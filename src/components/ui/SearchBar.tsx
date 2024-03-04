@@ -4,18 +4,22 @@ import { cn } from "@/utils/helpers";
 export const SearchBar = ({
   className,
   iconClassName,
-}: IClass & { iconClassName?: string }) => {
+  toggleInput,
+  expanded,
+}: IClass & { iconClassName?: string; expanded?: boolean; toggleInput?: () => void }) => {
   return (
-    <div
-      className={cn(
-        "flex w-full max-w-[220px] items-center gap-4 rounded-md border border-themeGrey/20 p-3  focus-within:border-main",
-        className
-      )}
-    >
-      <Search fontSize={20} className={cn(iconClassName)} />
+    <div className={cn("flex w-full max-w-[220px] items-center gap-1 ", className)}>
+      <Search
+        onClick={toggleInput}
+        fontSize={20}
+        className={cn("cursor-pointer", iconClassName)}
+      />
       <input
         type="text"
-        className="w-full bg-transparent text-sm outline-none placeholder:text-themeText/50"
+        className={cn(
+          "w-full rounded-md border border-[#000] bg-transparent  py-3 pl-3 text-sm outline-none transition-all duration-300",
+          !expanded && "w-0 opacity-0 pointer-events-none",
+        )}
         placeholder="Search"
         name="search"
       />

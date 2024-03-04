@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ScrollToTop } from '@/utils/helpers';
 import { AuthNavigator } from '@/router/layout/AuthNavigator';
 import { Toaster } from "react-hot-toast";

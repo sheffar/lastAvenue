@@ -1,129 +1,70 @@
-// import { AuthLayout } from "../layout/AuthLayout.tsx";
-// import { RouterConstantUtil } from "../../util/constants/RouterConstantUtil.ts";
-// import { AnimatePresence, motion } from "framer-motion";
-// import { useState } from "react";
-// import { LoginFormik } from "../../components/formik/auth/LoginFormik.tsx";
-// import { ThemeUtil } from "@/util/ThemeUtil.ts";
-
+import { Link } from "react-router-dom";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import SocialsLogin from "@/components/ui/buttons/SocialsLogin";
-import { Checkbox } from "@/components/ui/data-inputs/FilterCheckbox";
 import { BaseInput } from "@/components/ui/data-inputs/text-input";
-import { AssetsUtils } from "@/utils/AssetsUtils";
-import { Link } from "react-router-dom";
+import { AuthLayout } from "../layout/AuthLayout";
+import { Checkbox } from "@/components/ui/data-inputs/FilterCheckbox";
+import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
+import { APPNAME } from "@/utils/constants";
 
 export const LoginView = () => {
-  document.title = "Login | The Last Avenue";
+ document.title = `Login | ${APPNAME}`;
 
   return (
-    <div className="flex h-screen">
-      <div className="relative hidden h-full lg:block lg:w-1/2">
-        <img
-          className="xxl:object-fill h-full w-full object-cover brightness-75"
-          src={AssetsUtils.images.loginSideImage}
-          alt="Login Image"
-        />
-        {/* <div className="absolute inset-0 bg-gray-300 opacity-10"></div> */}
-      </div>
+    <AuthLayout parentClassname="max-md:items-start overflow-y-hidden">
+      <div className="flex h-auto w-[90%] flex-col items-center lg:max-w-md">
+        <h2 className="mb-4 text-4xl font-bold text-[#232323]">Sign In</h2>
+        <p className="text-md text-center font-medium text-[#060505] min-[400px]:w-[340px]">
+          Sign in to your account if you are registered
+        </p>
+        <form className="mt-6 w-full space-y-4">
+          <BaseInput
+            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
+            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
+            label="Email Address"
+            labelClassName="text-medium text-[16px]"
+            placeholder="Enter your email"
+          />
 
-      <div className="flex h-full w-full items-center justify-center overflow-scroll bg-white lg:w-1/2">
-        <div className="max-w-md pt-12">
-          <h2 className="mb-4 text-2xl font-bold text-gray-800">Register</h2>
-          <p>Register to enjoy the best fastest checkouts and awesome experiences</p>
-          <form className="space-y-4">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                placeholder="Enter your email"
-              />
-            </div>
+          <BaseInput
+            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pr-3"
+            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
+            label="Password"
+            type="password"
+            labelClassName="text-medium text-[16px]"
+            placeholder="Enter your password"
+          />
 
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                placeholder="Enter your password"
-              />
-            </div>
-
-            <BaseInput
-              inputClassName="border-none text-[#232323] px-3 text-bold text-[16px]"
-              inputContainerClassName="h-[60px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
-              label="Full Name"
-              labelClassName="text-medium text-[16px]"
+          <div className={"flex flex-row flex-wrap items-center justify-between gap-2"}>
+            <Checkbox
+              label="keep me signed in"
+              checkboxClassname="max-[500px]:mt-[4px] md:h-[18px] md:w-[18px]"
             />
-            <BaseInput
-              inputContainerClassName="h-[60px] border-2 rounded-[10px] border-[#E9E9E9] pr-3"
-              inputClassName="border-none text-[#232323] px-3 text-bold text-[16px]"
-              label="Password"
-              type="password"
-              labelClassName="text-medium text-[16px]"
-            />
-            <BaseInput
-              inputContainerClassName="h-[60px] border-2 rounded-[10px] border-[#E9E9E9] pr-3"
-              inputClassName="border-none text-[#232323] px-3 text-bold text-[16px]"
-              label="Confirm Password"
-              type="password"
-              labelClassName="text-medium text-[16px]"
-            />
-
-            <div className={"flex flex-row items-start justify-start gap-2"}>
-              <input
-                type="checkbox"
-                className="checkbox checkbox-primary h-[34px] w-[34px]"
-                name="agreeTerms"
-                id="agreeTerms"
-              />
-              <label
-                htmlFor="agreeTerms"
-                className="label mt-1 flex cursor-pointer items-center"
-              >
-                <span className={"w-full text-[16px] font-medium text-[#232323]"}>
-                  I have read and agree the general
-                  <Link to={"#"} className="ml-1 cursor-pointer underline">
-                    Terms & Conditions
-                  </Link>{" "}
-                  and the
-                  <Link to={"#"} className="ml-1 cursor-pointer underline">
-                    Privacy Policy
-                  </Link>
-                  . of TLA.
-                </span>
-              </label>
-            </div>
-          </form>
-          <p className={"text-center text-[20px] font-medium text-[#212121]"}>
-            Already have an account?{" "}
-            <span
-              className={
-                "text-blackColor font-darkerGrotesque-bold cursor-pointer underline"
-              }
+            <Link
+              className="text-md font-medium text-[#0F60FF]"
+              to={RouterConstantUtil.routes.auth.forgot_password}
             >
-              Login
-            </span>
-          </p>
-          <SocialsLogin />
-
+              Forgot password?
+            </Link>
+          </div>
           <BaseButton
             hoverOpacity={0.9}
             hoverScale={1.05}
-            containerCLassName="bg-[#232323] w-full py-[19px] font-medium text-[16px] text-[#F7FAFC]"
-            title={"Register"}
+            containerCLassName="bg-[#232323] rounded-[8px] w-full py-[24px] font-medium text-[16px] text-[#F7FAFC]"
+            title={"Signin"}
           />
-        </div>
+          <p className={"text-md text-center font-medium text-[#212121]"}>
+            Don’t have an account yet? {""}
+            <Link
+              to={RouterConstantUtil.routes.auth.register}
+              className={"cursor-pointer text-[#0F60FF]"}
+            >
+              Register now
+            </Link>
+          </p>
+          <SocialsLogin />
+        </form>
       </div>
-    </div>
+    </AuthLayout>
   );
 };

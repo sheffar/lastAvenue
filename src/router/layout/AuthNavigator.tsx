@@ -9,9 +9,9 @@ type AuthRequiredProps = {
 };
 
 export const AuthNavigator = ({
-  isAuth,
+  // isAuth,
   elem,
-  path,
+  // path,
 }: AuthRequiredProps) => {
 //   const location = useLocation();
 

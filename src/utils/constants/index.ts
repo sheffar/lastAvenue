@@ -1,0 +1,1 @@
+export const APPNAME = "The Last Avenue";

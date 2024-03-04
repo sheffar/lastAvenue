@@ -1,4 +1,4 @@
-import React, { CSSProperties, InputHTMLAttributes, useState } from "react";
+import { CSSProperties, InputHTMLAttributes, useState } from "react";
 import { InformationCircle, CheckMarkCircle } from "react-huge-icons/outline";
 import { cn } from "@/utils/helpers";
 import { RxEyeClosed } from "react-icons/rx";
@@ -31,15 +31,15 @@ export const BaseInput = ({
   ...props
 }: BaseInputProps & InputHTMLAttributes<HTMLInputElement>) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [inputValue, setInputValue] = useState("");
-  const [pwdField, setPwdField] = useState("");
+  // const [inputValue, setInputValue] = useState("");
+  // const [pwdField, setPwdField] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    if (type === "password") {
-      setPwdField(showPassword ? "" : "*".repeat(inputValue.length));
-    }
-  };
+  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setInputValue(e.target.value);
+  //   if (type === "password") {
+  //     setPwdField(showPassword ? "" : "*".repeat(inputValue.length));
+  //   }
+  // };
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -70,7 +70,7 @@ export const BaseInput = ({
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           // type={"text"}
           className={cn(
-            "text-themeText placeholder-themeGrey h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 pl-[1rem]  pr-[2rem] text-left text-sm font-light outline-none focus:outline-none",
+            "text-themeText placeholder:text-[#606060] placeholder-gray-400 placeholder:font-medium h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 pl-[1rem]  pr-[2rem] text-left text-sm font-light outline-none focus:outline-none",
             inputClassName,
           )}
           // value={type === "password" && !showPassword ? pwdField : inputValue}

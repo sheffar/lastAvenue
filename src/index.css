@@ -2,12 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body{
-    font-family: "Jost", sans-serif;
-    font-optical-sizing: auto;
+body {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
 }
 
-*{
-    /* outline: 2px solid red; */
+* {
+  /* outline: 2px solid red; */
+}
+
+.adjust_select_arrow {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M12 15l-6-6h12z' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.adjust_select_arrow_angle {
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232D3748' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9' /%3E%3C/svg%3E");
+}
+
+.adjust_select_arrow option {
+  background-color: #ffffff; /* Background color */
+  border-radius: 16px; /* Border radius */
+  padding: 0.5rem; /* Adjust padding as needed */
+  height: 40px; /* Height of each option */
+  width: 200px; /* Width of each option */
 }
