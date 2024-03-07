@@ -36,6 +36,9 @@ export const HomePage = () => {
               <p>Shop Women</p>
             </div>
           </div>
+          <section>
+            <h3 className="py-14 text-center text-[39px] font-bold">Shop By Category</h3>
+          </section>
         </div>
       </div>
     </AuthLayout>
