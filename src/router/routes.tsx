@@ -6,6 +6,7 @@ import { PasswordResetTokenView } from "@/view/auth/PasswordResetToken";
 import { RegistrationSuccessfulView } from "@/view/auth/RegistrationSuccessful";
 import { RegistrationView } from "@/view/auth/RegistrationView";
 import { SetNewPasswordView } from "@/view/auth/SetNewPassword";
+import { HomePage } from "@/view/home/HomePage";
 
 export const allRoutes = [
   {
@@ -65,6 +66,15 @@ export const allRoutes = [
   {
     component: SetNewPasswordView,
     path: RouterConstantUtil.routes.auth.set_new_passsword,
+    meta: {
+      isAuth: false,
+      redirectTo: undefined,
+    },
+    options: {},
+  },
+  {
+    component: HomePage,
+    path: RouterConstantUtil.routes.page.home_page,
     meta: {
       isAuth: false,
       redirectTo: undefined,

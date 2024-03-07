@@ -9,6 +9,8 @@ export const RouterConstantUtil = {
       registration_successful: "/auth/registration-successful",
       set_new_passsword: "/auth/reset-new-password",
     },
-    page: {},
+    page: {
+      home_page: "/",
+    },
   },
 };

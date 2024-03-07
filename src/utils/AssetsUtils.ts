@@ -8,6 +8,8 @@ import check from "@/assets/icons/check.png";
 import resetMailIcon from "@/assets/icons/resetMailIcon.png";
 import lock from "@/assets/icons/lock.png";
 import world from "@/assets/icons/world.png";
+import manAndWomanImage from "@/assets/images/shopMenAndWomen.png";
+import homePageShowCaseImage from "@/assets/images/homePageShowcase.png";
 
 export const AssetsUtils = {
   icons: {
@@ -23,5 +25,7 @@ export const AssetsUtils = {
   images: {
     loginSideImage,
     logo,
+    manAndWomanImage,
+    homePageShowCaseImage,
   },
 };
