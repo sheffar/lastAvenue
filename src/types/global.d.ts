@@ -15,3 +15,20 @@ interface IProps {
 
 type ComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> =
   React.ComponentProps<T>;
+
+interface ILogin {
+  email: string;
+  password: string;
+}
+
+interface ICustomError {
+  response?: {
+    data?: {
+      data?: Record<string, unknown>;
+      message?: string;
+      status?: number
+    };
+  };
+  message?: string;
+}
+

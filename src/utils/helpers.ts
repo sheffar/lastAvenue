@@ -1,5 +1,22 @@
 import clsx, { ClassArray } from "clsx";
+import toast, { ToastPosition } from "react-hot-toast";
 import { twMerge } from "tailwind-merge";
+
+interface handleToastNotifsInterface {
+  type: "success" | "error" | "loading" | "custom";
+  message: string;
+  id?: string;
+  position?: ToastPosition | undefined;
+  duration?: number;
+  dark?: boolean;
+}
+
+type ToastMethod = {
+  success: typeof toast.success;
+  error: typeof toast.error;
+  loading: typeof toast.loading;
+  custom: typeof toast.custom;
+};
 
 export function ScrollToTop() {
   const duration = 500;
@@ -26,4 +43,53 @@ export function ScrollToTop() {
 
 export function cn(...inputs: ClassArray) {
   return twMerge(clsx(inputs));
+}
+
+export function handleToastNotifs({
+  type,
+  message,
+  id,
+  position = "top-center",
+  duration,
+  dark,
+}: handleToastNotifsInterface) {
+  (toast as ToastMethod)[type](message, {
+    id,
+    duration: duration || 4000,
+    position,
+
+    // Styling
+    style: dark
+      ? {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        }
+      : {},
+    className: "",
+
+    // Custom Icon
+    // icon: "👏",
+
+    // Change colors of success/error/loading icon
+    // iconTheme: {
+    //   primary: "green",
+    //   secondary: "#fff",
+    // },
+
+    // Aria
+    ariaProps: {
+      role: "status",
+      "aria-live": "polite",
+    },
+  });
+}
+
+export function handleReqResErrors(e: ICustomError, message?: string) {
+  handleToastNotifs({
+    type: "error",
+    position: "top-right",
+    id: "error",
+    message: message || e?.response?.data?.message || "An error occured",
+  });
 }
