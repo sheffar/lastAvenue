@@ -6,7 +6,13 @@ import { cn } from "@/utils/helpers";
 export const AuthLayout = ({
   children,
   parentClassname,
-}: IChildren & { parentClassname?: string }) => {
+  authPages = true,
+  authNavParentClassName,
+}: IChildren & {
+  parentClassname?: string;
+  authPages?: boolean;
+  authNavParentClassName?: string;
+}) => {
   return (
     <motion.div
       key="AuthLayout"
@@ -16,10 +22,10 @@ export const AuthLayout = ({
       transition={{ duration: 0.8 }}
       className={cn("flex h-full flex-col lg:h-screen")}
     >
-      <AuthNav />
+      <AuthNav authPages={authPages} parentClassName={authNavParentClassName} />
       <div className="mb-5 flex h-full overflow-hidden lg:mb-0 lg:h-screen">
         <div
-          className="relative hidden h-full overflow-y-auto lg:block lg:w-1/2"
+          className={`relative hidden h-full overflow-y-auto lg:block lg:w-1/2 ${!authPages && "lg:hidden"}`}
           style={{ backgroundImage: `url(${AssetsUtils.images.loginSideImage})` }}
         >
           <div
