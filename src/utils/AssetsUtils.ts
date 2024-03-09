@@ -18,8 +18,8 @@ import apparelLane from "@/assets/images/apparelLane.png";
 import daVillage from "@/assets/images/daVillage.png";
 import eightAvenueCollection from "@/assets/images/eightAvenueCollection.png";
 import fifthAvenue from "@/assets/images/fifthAvenue.png";
-import jordan from "@/assets/images/jordan.png";
-import seventhAvenueCollection from "@/assets/images/seventhAvenueCollection.png";
+import jordan from "@/assets/images/jordanStrt.png";
+import seventhAndEightAvenueCollection from "@/assets/images/seventhAndEightAvenue.png";
 import avenueImage from "@/assets/images/theAvenueImage.png";
 import wimbledon from "@/assets/images/wimbledon.png";
 import arrowLeft from "@/assets/icons/arrowLeft.png";
@@ -50,7 +50,7 @@ export const AssetsUtils = {
     eightAvenueCollection,
     fifthAvenue,
     jordan,
-    seventhAvenueCollection,
+    seventhAndEightAvenueCollection,
     avenueImage,
     wimbledon,
   },

@@ -63,10 +63,10 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="flex flex-col items-center py-16 text-center">
+    <section className="py-16 text-center">
       <h3 className="text-[39px] font-bold">{"Shop By Category"}</h3>
       <nav className="py-10">
-        <ul className="flex items-start gap-8">
+        <ul className="flex items-start justify-center gap-8 text-center">
           <li className="cursor-pointer text-xl text-gray-500">{"For Woman"}</li>
           <li className="cursor-pointer border-b-2 border-black pb-2 text-xl">
             {"For Men"}
@@ -74,7 +74,7 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
         </ul>
       </nav>
       <Tab.Group>
-        <Tab.List className="-mt-2 flex items-start gap-2 text-lg">
+        <Tab.List className="-mt-2 flex items-start justify-center gap-2 text-lg">
           {shopByCategoryNavData.map(({ id, name }) => (
             <Tab
               key={id}
@@ -83,7 +83,7 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
             >
               {({ selected }) => (
                 <button
-                  className={`px-6 py-2 ${selected ? "h-full bg-gray-100" : ""}
+                  className={`px-6 py-2 ${selected ? "transition-300 h-full bg-gray-100 duration-300" : ""}
                   `}
                 >
                   {name}
@@ -98,10 +98,10 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
           ref={emblaRef}
           className="relative flex min-w-full flex-col items-center justify-center overflow-hidden"
         >
-          <div className="mt-36  flex w-[70rem] items-center  gap-32">
+          <div className="mt-36  flex  w-full items-center  gap-32">
             {shoes.map(({ id, shoe, name, profit, loss }) => {
               return (
-                <div key={id}>
+                <div key={id} className="cursor-pointer">
                   <div className="flex h-40 items-center justify-center">
                     <img src={shoe} alt={name} />
                   </div>
@@ -119,7 +119,7 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
           </BaseButton>
         </div>
         {!nextBtnDisabled && (
-          <div className="absolute -left-20 top-0 flex h-full items-start">
+          <div className="absolute -left-20 top-0 flex h-full items-start 2xl:-left-10">
             <button onClick={scrollNext}>
               <img
                 src={AssetsUtils.icons.arrowLeft}
@@ -130,7 +130,7 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
           </div>
         )}
         {!prevBtnDisabled && (
-          <div className="absolute -right-20 top-0 flex h-full items-start">
+          <div className="absolute -right-20 top-0  flex h-full items-start 2xl:-right-10">
             <button onClick={scrollPrev}>
               <img
                 src={AssetsUtils.icons.arrowLeft}

@@ -4,7 +4,7 @@ import { AssetsUtils } from "@/utils/AssetsUtils";
 
 export const StylesAndDesigns: FunctionComponent = () => {
   return (
-    <div className="text-center">
+    <div className="flex flex-col text-center">
       <p className="text-[39px]">{"The Last Avenue"}</p>
       <h1 className="text-[95px] font-bold">{"All styles and Designs"}</h1>
       <img
