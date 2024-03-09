@@ -14,7 +14,7 @@ export const AvenueCollection: FunctionComponent = () => {
               {"Explore"}
             </BaseButton>
           </div>
-          <img src={AssetsUtils.images.apparelLane} alt={"showcase"} />
+          <img src={AssetsUtils.images.apparelLane} alt={"appare lane"} />
         </div>
       </div>
       <div className="relative">
@@ -22,22 +22,25 @@ export const AvenueCollection: FunctionComponent = () => {
           <img
             src={AssetsUtils.images.fifthAvenue}
             className={"max-h-[800px] cursor-pointer"}
-            alt={"showcase"}
+            alt={"fifth avenue"}
           />
           <img
             src={AssetsUtils.images.jordan}
             className={"max-h-[800px] cursor-pointer"}
-            alt={"showcase"}
+            alt={"jordan"}
           />
           <img
             src={AssetsUtils.images.daVillage}
             className={"max-h-[800px]"}
-            alt={"showcase"}
+            alt={"da village"}
           />
         </div>
       </div>
       <div className="relative my-4">
-        <img src={AssetsUtils.images.seventhAndEightAvenueCollection} alt={"showcase"} />
+        <img
+          src={AssetsUtils.images.seventhAndEightAvenueCollection}
+          alt={"seventh and eight collection"}
+        />
       </div>
     </section>
   );

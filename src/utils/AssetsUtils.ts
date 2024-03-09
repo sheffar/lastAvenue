@@ -23,6 +23,10 @@ import seventhAndEightAvenueCollection from "@/assets/images/seventhAndEightAven
 import avenueImage from "@/assets/images/theAvenueImage.png";
 import wimbledon from "@/assets/images/wimbledon.png";
 import arrowLeft from "@/assets/icons/arrowLeft.png";
+import overlay from "@/assets/images/overlay.png";
+import arrowWhiteLeft from "@/assets/icons/arrowWhiteLeft.png";
+import arrowWhiteRight from "@/assets/icons/arrowWhiteRight.png";
+import arrowBoldRight from "@/assets/icons/arrowBoldRight.png";
 
 export const AssetsUtils = {
   icons: {
@@ -35,6 +39,9 @@ export const AssetsUtils = {
     lock,
     world,
     arrowLeft,
+    arrowWhiteLeft,
+    arrowWhiteRight,
+    arrowBoldRight,
   },
   images: {
     loginSideImage,
@@ -53,5 +60,6 @@ export const AssetsUtils = {
     seventhAndEightAvenueCollection,
     avenueImage,
     wimbledon,
+    overlay,
   },
 };
