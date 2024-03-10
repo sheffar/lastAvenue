@@ -30,14 +30,14 @@ export const HomePage: FunctionComponent = () => {
       >
         <div>
           <div
-            className={`fixed w-full lg:relative h-full px-24  py-4 sm:py-4 lg:py-7 max-[1050px]:px-[12px] lg:block`}
+            className={`fixed h-full w-full px-24 py-4  max-[1050px]:px-[12px] sm:py-4 lg:relative lg:block lg:py-7`}
           >
             <StylesAndDesigns />
-            {/* <ShopByCategory shoes={shoes} />
-            <AvenueCollection /> */}
+            <ShopByCategory shoes={shoes} />
+            <AvenueCollection />
           </div>
-          {/* <Wimbledon />
-          <FooterMenu /> */}
+          <Wimbledon />
+          <FooterMenu />
         </div>
       </div>
     </AuthLayout>
