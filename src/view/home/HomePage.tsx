@@ -2,11 +2,15 @@ import { FunctionComponent } from "react";
 
 import { APPNAME } from "@/utils/constants";
 import { AuthLayout } from "../layout/AuthLayout";
-import { shoes } from "./data";
 import { AssetsUtils } from "@/utils/AssetsUtils";
-import { FooterMenu } from "@/components/home/footer/footer";
-import { AvenueCollection, StylesAndDesigns, Wimbledon } from "@/components/home";
-import { ShopByCategory } from "@/components/home/ShopByCategory";
+import { shoes } from "./data";
+import {
+  AvenueCollection,
+  ShopByCategory,
+  StylesAndDesigns,
+  Wimbledon,
+} from "@/components/home";
+import { FooterMenu } from "@/router/layout/footer/Footer";
 
 export const HomePage: FunctionComponent = () => {
   document.title = `Home Page | ${APPNAME}`;
@@ -32,7 +36,6 @@ export const HomePage: FunctionComponent = () => {
             <ShopByCategory shoes={shoes} />
             <AvenueCollection />
           </div>
-
           <Wimbledon />
           <FooterMenu />
         </div>

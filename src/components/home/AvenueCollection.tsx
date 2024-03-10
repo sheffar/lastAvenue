@@ -7,14 +7,17 @@ export const AvenueCollection: FunctionComponent = () => {
   return (
     <section>
       <div className="relative my-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2">
           <img src={AssetsUtils.images.avenueImage} alt={"showcase"} />
-          <div className="absolute left-[4.6rem] top-44 flex h-full w-1/2 items-center p-8 text-lg font-semibold text-black xl:left-[8.5rem] 2xl:top-60">
+          <div className="absolute left-[4.6rem] top-44 flex h-full w-1/2 items-center p-8 text-lg font-semibold text-black 2xl:left-[8.5rem] 2xl:top-60">
             <BaseButton containerCLassName="bg-black mt-14 rounded-none w-fit px-20 text-white">
               {"Explore"}
             </BaseButton>
           </div>
-          <img src={AssetsUtils.images.apparelLane} alt={"appare lane"} />
+          <img src={AssetsUtils.images.apparelLane} 
+            className={"max-h-[800px] cursor-pointer"}
+          
+          alt={"appare lane"} />
         </div>
       </div>
       <div className="relative">
@@ -26,7 +29,7 @@ export const AvenueCollection: FunctionComponent = () => {
           />
           <img
             src={AssetsUtils.images.jordan}
-            className={"max-h-[800px] cursor-pointer"}
+            className={" cursor-pointer"}
             alt={"jordan"}
           />
           <img
