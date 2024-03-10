@@ -34,6 +34,8 @@ import youtube from "@/assets/icons/youtube .png";
 import mail from "@/assets/icons/Mail.png";
 import phone from "@/assets/icons/Phone.png";
 import twitter from "@/assets/icons/twitter.png";
+import forMen from "@/assets/images/forMen.png";
+import forWomen from "@/assets/images/forWomen.png";
 
 export const AssetsUtils = {
   icons: {
@@ -75,5 +77,7 @@ export const AssetsUtils = {
     avenueImage,
     wimbledon,
     overlay,
+    forMen,
+    forWomen,
   },
 };

@@ -19,7 +19,7 @@ export const HomePage: FunctionComponent = () => {
     <AuthLayout
       authNavParentClassName="flex-row-reverse"
       authPages={false}
-      parentClassname="max-md:items-start relative lg:w-full scrollbar-hide"
+      parentClassname="max-md:items-start h-48 md:h-52 lg:h-screen relative lg:w-full scrollbar-hide"
     >
       <div
         className="bg absolute inset-0 bg-center bg-no-repeat"
@@ -30,7 +30,7 @@ export const HomePage: FunctionComponent = () => {
       >
         <div>
           <div
-            className={`relative hidden h-full px-24  py-7 max-[1050px]:px-[12px] lg:block lg:w-full `}
+            className={`fixed h-full w-full px-24 py-4  max-[1050px]:px-[12px] sm:py-4 lg:relative lg:block lg:py-7`}
           >
             <StylesAndDesigns />
             <ShopByCategory shoes={shoes} />
