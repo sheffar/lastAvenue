@@ -2,11 +2,15 @@ import { FunctionComponent } from "react";
 
 import { APPNAME } from "@/utils/constants";
 import { AuthLayout } from "../layout/AuthLayout";
-import { shoes } from "./data";
 import { AssetsUtils } from "@/utils/AssetsUtils";
-import { FooterMenu } from "@/components/home/footer/footer";
-import { AvenueCollection, StylesAndDesigns } from "@/components/home";
-import { ShopByCategory } from "@/components/home/ShopByCategory";
+import { shoes } from "./data";
+import {
+  AvenueCollection,
+  ShopByCategory,
+  StylesAndDesigns,
+  Wimbledon,
+} from "@/components/home";
+import { FooterMenu } from "@/router/layout/footer/Footer";
 
 export const HomePage: FunctionComponent = () => {
   document.title = `Home Page | ${APPNAME}`;
@@ -24,25 +28,15 @@ export const HomePage: FunctionComponent = () => {
           backgroundSize: "100% 100%",
         }}
       >
-        <div
-          className={`relative hidden h-full px-24  py-7 max-[1050px]:px-[12px] lg:block lg:w-full `}
-        >
-          <StylesAndDesigns />
-          <ShopByCategory shoes={shoes} />
-          <AvenueCollection />
-
-          <section className="relative mt-20">
-            <img
-              src={AssetsUtils.images.wimbledon}
-              className={"max-h-[800px] cursor-pointer"}
-              alt={"showcase"}
-            />
-            <div className="right1/2 absolute top-0 z-20 flex h-full w-full flex-col items-center justify-center text-white">
-              {"Visit our Avenue"}
-              <div>{"Wimbledon"}</div>
-              <div>{"See Addresses"}</div>
-            </div>
-          </section>
+        <div>
+          <div
+            className={`relative hidden h-full px-24  py-7 max-[1050px]:px-[12px] lg:block lg:w-full `}
+          >
+            <StylesAndDesigns />
+            <ShopByCategory shoes={shoes} />
+            <AvenueCollection />
+          </div>
+          <Wimbledon />
           <FooterMenu />
         </div>
       </div>

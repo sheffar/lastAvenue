@@ -41,6 +41,15 @@ const shopByCategoryNavData = [
   },
 ];
 
+const tabData = [
+  {
+    name: "For Women",
+  },
+  {
+    name: "For men",
+  },
+];
+
 export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
   const [prevBtnDisabled, setPrevBtnDisabled] = useState<boolean>(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState<boolean>(true);
@@ -65,14 +74,23 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
   return (
     <section className="py-16 text-center">
       <h3 className="text-[39px] font-bold">{"Shop By Category"}</h3>
-      <nav className="py-10">
-        <ul className="flex items-start justify-center gap-8 text-center">
-          <li className="cursor-pointer text-xl text-gray-500">{"For Woman"}</li>
-          <li className="cursor-pointer border-b-2 border-black pb-2 text-xl">
-            {"For Men"}
-          </li>
-        </ul>
-      </nav>
+      <Tab.Group>
+        <Tab.List className="flex items-start justify-center gap-8 py-10 text-center">
+          {tabData.map(({ name }) => (
+            <Tab key={name} className="">
+              {({ selected }) => (
+                <button
+                  className={`transition duration-300 ${selected ? "cursor-pointer border-b-2 border-black pb-2 text-xl" : "cursor-pointer text-xl text-gray-500"}
+                  `}
+                >
+                  {name}
+                </button>
+              )}
+            </Tab>
+          ))}
+        </Tab.List>
+      </Tab.Group>
+
       <Tab.Group>
         <Tab.List className="-mt-2 flex items-start justify-center gap-2 text-lg">
           {shopByCategoryNavData.map(({ id, name }) => (
@@ -83,7 +101,7 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
             >
               {({ selected }) => (
                 <button
-                  className={`px-6 py-2 ${selected ? "transition-300 h-full bg-gray-100 duration-300" : ""}
+                  className={`transition-300 px-6 py-2 duration-300 focus:border-0 ${selected ? " h-full bg-gray-100 " : ""}
                   `}
                 >
                   {name}
@@ -134,7 +152,7 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
             <button onClick={scrollPrev}>
               <img
                 src={AssetsUtils.icons.arrowLeft}
-                alt="arrow left"
+                alt="arrow right"
                 className="mt-44 w-20 min-w-5 max-w-5 rotate-180 cursor-pointer"
               />
             </button>

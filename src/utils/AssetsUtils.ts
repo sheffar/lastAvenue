@@ -23,6 +23,17 @@ import seventhAndEightAvenueCollection from "@/assets/images/seventhAndEightAven
 import avenueImage from "@/assets/images/theAvenueImage.png";
 import wimbledon from "@/assets/images/wimbledon.png";
 import arrowLeft from "@/assets/icons/arrowLeft.png";
+import overlay from "@/assets/images/overlay.png";
+import arrowWhiteLeft from "@/assets/icons/arrowWhiteLeft.png";
+import arrowWhiteRight from "@/assets/icons/arrowWhiteRight.png";
+import arrowBoldRight from "@/assets/icons/arrowBoldRight.png";
+import copyright from "@/assets/icons/copyright.png";
+import facebook from "@/assets/icons/facebook.png";
+import instagram from "@/assets/icons/instagram .png";
+import youtube from "@/assets/icons/youtube .png";
+import mail from "@/assets/icons/Mail.png";
+import phone from "@/assets/icons/Phone.png";
+import twitter from "@/assets/icons/twitter.png";
 
 export const AssetsUtils = {
   icons: {
@@ -35,6 +46,16 @@ export const AssetsUtils = {
     lock,
     world,
     arrowLeft,
+    arrowWhiteLeft,
+    arrowWhiteRight,
+    arrowBoldRight,
+    copyright,
+    facebook,
+    instagram,
+    youtube,
+    mail,
+    phone,
+    twitter,
   },
   images: {
     loginSideImage,
@@ -53,5 +74,6 @@ export const AssetsUtils = {
     seventhAndEightAvenueCollection,
     avenueImage,
     wimbledon,
+    overlay,
   },
 };
