@@ -2,7 +2,7 @@ import loginSideImage from "@/assets/images/loginSideImage.png";
 import googleIcon from "@/assets/icons/google.png";
 import appleIcon from "@/assets/icons/apple.png";
 import linkedinIcon from "@/assets/icons/linkedin.png";
-import logo from "@/assets/images/logo.png";
+import logo from "@/assets/images/logo1.svg";
 import fingerprint from "@/assets/icons/fingerprint.png";
 import check from "@/assets/icons/check.png";
 import resetMailIcon from "@/assets/icons/resetMailIcon.png";
@@ -36,6 +36,17 @@ import phone from "@/assets/icons/Phone.png";
 import twitter from "@/assets/icons/twitter.png";
 import forMen from "@/assets/images/forMen.png";
 import forWomen from "@/assets/images/forWomen.png";
+import authenticity from "@/assets/icons/authenticity.svg";
+import circlePlus from "@/assets/icons/circle-plus.svg";
+import fileList from "@/assets/icons/file-list.svg";
+import logout from "@/assets/icons/logout.svg";
+import stats from "@/assets/icons/stats.svg";
+import support from "@/assets/icons/support.svg";
+import home from "@/assets/icons/home.svg";
+import settings from "@/assets/icons/settings.svg";
+import sidebarlogo1 from "@/assets/images/logo2.svg";
+import logoEllipse from "@/assets/images/logo-ellipse.svg";
+import andrea from "@/assets/images/andrea.jpg";
 
 export const AssetsUtils = {
   icons: {
@@ -58,8 +69,17 @@ export const AssetsUtils = {
     mail,
     phone,
     twitter,
+    authenticity,
+    circlePlus,
+    fileList,
+    logout,
+    stats,
+    support,
+    home,
+    settings,
   },
   images: {
+    logoEllipse,
     loginSideImage,
     logo,
     shopForMenAndWomen,
@@ -79,5 +99,7 @@ export const AssetsUtils = {
     overlay,
     forMen,
     forWomen,
+    sidebarlogo1,
+    andrea,
   },
 };

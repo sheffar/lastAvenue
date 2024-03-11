@@ -7,6 +7,7 @@ import { RegistrationSuccessfulView } from "@/view/auth/RegistrationSuccessful";
 import { RegistrationView } from "@/view/auth/RegistrationView";
 import { SetNewPasswordView } from "@/view/auth/SetNewPassword";
 import { HomePage } from "@/view/home/HomePage";
+import { SupplierStockList } from "@/view/supplier/StockListView";
 
 export const allRoutes = [
   {
@@ -77,6 +78,15 @@ export const allRoutes = [
     path: RouterConstantUtil.routes.page.home_page,
     meta: {
       isAuth: false,
+      redirectTo: undefined,
+    },
+    options: {},
+  },
+  {
+    component: SupplierStockList,
+    path: RouterConstantUtil.routes.supplier.stocklist,
+    meta: {
+      isAuth: true,
       redirectTo: undefined,
     },
     options: {},
