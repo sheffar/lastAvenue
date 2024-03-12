@@ -51,7 +51,7 @@ export const LoginView = () => {
             hoverOpacity={0.9}
             hoverScale={1.05}
             containerCLassName="bg-[#232323] rounded-[8px] w-full py-[24px] font-medium text-[16px] text-[#F7FAFC]"
-            title={"Signin"}
+            title={"Sign In"}
           />
           <p className={"text-md text-center font-medium text-[#212121]"}>
             Don’t have an account yet? {""}
