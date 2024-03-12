@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
-import useEmblaCarousel from "embla-carousel-react";
-import { EmblaCarouselType } from "embla-carousel";
-import { Tab } from "@headlessui/react";
-import { BaseButton } from "../ui/buttons/BaseButton";
 import { AssetsUtils } from "@/utils/AssetsUtils";
+import { Tab } from "@headlessui/react";
+import { EmblaCarouselType } from "embla-carousel";
+import useEmblaCarousel from "embla-carousel-react";
+import { BaseButton } from "../ui/buttons/BaseButton";
 
 type IShoes = {
   id: number;

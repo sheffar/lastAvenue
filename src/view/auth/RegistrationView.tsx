@@ -1,11 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import SocialsLogin from "@/components/ui/buttons/SocialsLogin";
 import { SelectInput } from "@/components/ui/data-inputs/select-input";
 import { BaseInput } from "@/components/ui/data-inputs/text-input";
-import { AuthLayout } from "../layout/AuthLayout";
-import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { APPNAME } from "@/utils/constants";
+import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthLayout } from "../layout/AuthLayout";
 
 export const RegistrationView = () => {
   document.title = `Register | ${APPNAME}`;

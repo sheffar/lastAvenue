@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import SocialsLogin from "@/components/ui/buttons/SocialsLogin";
-import { BaseInput } from "@/components/ui/data-inputs/text-input";
-import { AuthLayout } from "../layout/AuthLayout";
 import { Checkbox } from "@/components/ui/data-inputs/FilterCheckbox";
-import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
+import { BaseInput } from "@/components/ui/data-inputs/text-input";
 import { APPNAME } from "@/utils/constants";
+import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
+import { Link } from "react-router-dom";
+import { AuthLayout } from "../layout/AuthLayout";
 
 export const LoginView = () => {
- document.title = `Login | ${APPNAME}`;
+  document.title = `Login | ${APPNAME}`;
 
   return (
     <AuthLayout parentClassname="max-md:items-start overflow-y-hidden">

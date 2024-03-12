@@ -7,7 +7,8 @@ import { RegistrationSuccessfulView } from "@/view/auth/RegistrationSuccessful";
 import { RegistrationView } from "@/view/auth/RegistrationView";
 import { SetNewPasswordView } from "@/view/auth/SetNewPassword";
 import { HomePage } from "@/view/home/HomePage";
-import { SupplierStockList } from "@/view/supplier/StockListView";
+import BuyersInterface from "@/view/product/BuyersInterface";
+import ProductOverview from "@/view/product/ProductOverview";
 
 export const allRoutes = [
   {
@@ -83,8 +84,17 @@ export const allRoutes = [
     options: {},
   },
   {
-    component: SupplierStockList,
-    path: RouterConstantUtil.routes.supplier.stocklist,
+    component: BuyersInterface,
+    path: RouterConstantUtil.routes.product.buyer_interface,
+    meta: {
+      isAuth: true,
+      redirectTo: undefined,
+    },
+    options: {},
+  },
+  {
+    component: ProductOverview,
+    path: RouterConstantUtil.routes.product.product_oveview,
     meta: {
       isAuth: true,
       redirectTo: undefined,

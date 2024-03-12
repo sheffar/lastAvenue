@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { AuthNav } from "@/components/ui/navs/auth-nav";
-import { FaAngleLeft } from "react-icons/fa6";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
+import { AuthNav } from "@/components/ui/navs/auth-nav";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { cn } from "@/utils/helpers";
+import { motion } from "framer-motion";
+import { FaAngleLeft } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 interface IResetPasswordLayout {
   heading: string;
@@ -40,7 +40,12 @@ export const ResetPasswordLayout = ({
       className="flex h-full flex-col overflow-hidden"
     >
       <AuthNav />
-      <div className={cn("mx-auto mb-5 flex w-[530px] flex-col items-center justify-center pt-20 max-[600px]:w-[90%]", parentClassname)}>
+      <div
+        className={cn(
+          "mx-auto mb-5 flex w-[530px] flex-col items-center justify-center pt-20 max-[600px]:w-[90%]",
+          parentClassname,
+        )}
+      >
         <motion.div
           className="mb-5"
           initial={{ y: 300, opacity: 0 }}

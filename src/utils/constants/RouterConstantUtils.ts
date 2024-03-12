@@ -14,7 +14,11 @@ export const RouterConstantUtil = {
       suppl: "/",
     },
     supplier: {
-      stocklist: "/supplier/stocklist"
-    }
+      stocklist: "/supplier/stocklist",
+    },
+    product: {
+      buyer_interface: "/products",
+      product_oveview: "/product/overview",
+    },
   },
 };
