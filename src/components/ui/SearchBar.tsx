@@ -8,6 +8,7 @@ interface ISearchBar {
   hideinput?: boolean;
   toggleInput?: () => void;
   placeholder?: string;
+  value?: string;
 }
 
 export const SearchBar = ({
@@ -17,7 +18,8 @@ export const SearchBar = ({
   toggleInput,
   expanded,
   hideinput = true,
-  placeholder
+  placeholder,
+  value,
 }: IClass & ISearchBar) => {
   return (
     <div className={cn("flex w-full max-w-[220px] items-center gap-1 ", className)}>
@@ -28,6 +30,7 @@ export const SearchBar = ({
       />
       <input
         type="text"
+        value={value || undefined}
         className={cn(
           "w-full rounded-md border border-[#000] bg-transparent  py-3 pl-3 text-sm outline-none transition-all duration-300",
           hideinput && !expanded && "pointer-events-none w-0 opacity-0",

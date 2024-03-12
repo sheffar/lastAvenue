@@ -1,4 +1,4 @@
-import { Apps } from "react-huge-icons/outline";
+// import { Apps } from "react-huge-icons/outline";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/utils/helpers";
 
@@ -13,15 +13,16 @@ export interface SideNavProps {
   href: string;
   textStyles?: string;
   className?: ClassName | string;
+  iconsClassname?:string
 }
 
 export const SideNav = (props: SideNavProps) => {
-  const { icon, href, text, textStyles, className } = props;
+  const { icon, href, text, textStyles, className, iconsClassname } = props;
 
   const style = ({ isActive }: ActiveClass) => {
     const baseStyles = cn(
-      "transition-ease relative flex items-center gap-4 p-4 font-sans text-lg font-medium text-[#888888] hover:text-[#232323]",
-      // isActive && "text-[#232323]",
+      "transition-ease relative flex items-center justify-center gap-4 p-4 font-sans text-lg font-medium text-[#888888] hover:text-[#232323]",
+      isActive && "border-r-[#232323] w-full rounded-r-[4px] border-r-[4px] text-[#232323]",
     );
 
     if (typeof className === "string") return cn(baseStyles, className);
@@ -31,7 +32,7 @@ export const SideNav = (props: SideNavProps) => {
 
   return (
     <NavLink to={href} className={style}>
-      <img src={icon} alt="icon" className={cn("")} />
+      <img src={icon} alt="icon" className={cn(iconsClassname)} />
       <span className={cn("font-sans", textStyles)}>{text}</span>
     </NavLink>
   );

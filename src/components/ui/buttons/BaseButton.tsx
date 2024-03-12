@@ -29,7 +29,7 @@ export const BaseButton = ({
       }}
       whileTap={{ scale: tapScale, borderRadius: "15px" }}
       className={cn(
-        "flex h-[45px] bg-[red] cursor-pointer select-none items-center justify-center rounded-[12px]  p-[10px] text-center",
+        "flex h-[45px] cursor-pointer select-none items-center justify-center rounded-[12px]  p-[10px] text-center",
         containerCLassName,
       )}
       onClick={onClick}

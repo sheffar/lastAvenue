@@ -29,6 +29,7 @@ import instagram from "@/assets/icons/instagram .png";
 import linkedinIcon from "@/assets/icons/linkedin.png";
 import lock from "@/assets/icons/lock.png";
 import logout from "@/assets/icons/logout.svg";
+import notification from "@/assets/icons/notification.svg";
 import packaging from "@/assets/icons/packaging.png";
 import resetMailIcon from "@/assets/icons/resetMailIcon.png";
 import search from "@/assets/icons/search.png";
@@ -93,6 +94,7 @@ import wimbledon from "@/assets/images/wimbledon.png";
 
 export const AssetsUtils = {
   icons: {
+    notification,
     googleIcon,
     linkedinIcon,
     appleIcon,

@@ -119,3 +119,18 @@ export function handleReqResErrors(e: ICustomError, message?: string) {
     message: message || e?.response?.data?.message || "An error occured",
   });
 }
+
+
+export function statusColorCode(statusText: string): BadgeStatus {
+  const positives = ["completed", "approved", "on time", "submitted"];
+  const negatives = ["reject", "late", "failed"];
+  const cautions = ["processing", "pending"];
+  const others = ["permanent"];
+
+  const text = statusText.toLowerCase();
+  if (positives.includes(text)) return "positive";
+  else if (negatives.includes(text)) return "negative";
+  else if (cautions.includes(text)) return "caution";
+  else if (others.includes(text)) return "perma";
+  else return "neutral";
+}

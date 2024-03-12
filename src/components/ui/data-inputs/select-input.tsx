@@ -10,6 +10,7 @@ export const SelectInput = ({
   label,
   containerClassname,
   labelClassname,
+  optionClassname,
 }: {
   name?: string;
   defaultValue?: string;
@@ -19,6 +20,7 @@ export const SelectInput = ({
   label?: string;
   containerClassname?: string;
   labelClassname?: string;
+  optionClassname?: string;
 }) => {
   return (
     <div className={cn(containerClassname)}>
@@ -31,16 +33,28 @@ export const SelectInput = ({
         id={name}
         name={name}
         className={cn(
-          "adjust_select_arrow font-normal text-[#606060] h-14 w-full cursor-pointer rounded-[10px] py-3 pl-[1rem]  pr-[2rem] text-left text-md outline-none focus:outline-none",
+          "adjust_select_arrow text-md h-14 w-full cursor-pointer rounded-[10px] py-3 pl-[1rem] pr-[2rem]  text-left font-normal text-[#606060] outline-none focus:outline-none",
           selectClassName,
         )}
         style={{ ...selectStyles }}
       >
-        {defaultValue && <option className="bg-theme" disabled selected value="" defaultValue={defaultValue}>
-          {defaultValue}
-        </option>}
+        {defaultValue && (
+          <option
+            className={cn(optionClassname)}
+            disabled
+            selected
+            value=""
+            defaultValue={defaultValue}
+          >
+            {defaultValue}
+          </option>
+        )}
         {options?.map((item: string, idx: number) => (
-          <option key={idx} className="" value={item.toLocaleUpperCase()}>
+          <option
+            key={idx}
+            className={cn(optionClassname)}
+            value={item.toLocaleUpperCase()}
+          >
             {item}
           </option>
         ))}
