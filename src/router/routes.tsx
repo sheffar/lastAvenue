@@ -7,14 +7,8 @@ import { RegistrationSuccessfulView } from "@/view/auth/RegistrationSuccessful";
 import { RegistrationView } from "@/view/auth/RegistrationView";
 import { SetNewPasswordView } from "@/view/auth/SetNewPassword";
 import { HomePage } from "@/view/home/HomePage";
-<<<<<<< HEAD
 import BuyersInterface from "@/view/product/BuyersInterface";
 import ProductOverview from "@/view/product/ProductOverview";
-=======
-import { Settings } from "@/view/supplier/Settings";
-import { SupplierStockList } from "@/view/supplier/StockListView";
-import { Support } from "@/view/supplier/Support";
->>>>>>> add465ee12940d07cd85733d602b36eb77c18bb1
 
 export const allRoutes = [
   {

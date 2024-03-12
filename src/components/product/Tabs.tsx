@@ -42,3 +42,4 @@ const Tab = ({ label, children }) => {
   );
 };
 export { Tab, Tabs };
+
