@@ -32,3 +32,4 @@ interface ICustomError {
   message?: string;
 }
 
+type BadgeStatus = "positive" | "negative" | "neutral" | "perma" | "caution";

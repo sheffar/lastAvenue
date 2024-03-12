@@ -47,9 +47,11 @@ import settings from "@/assets/icons/settings.svg";
 import sidebarlogo1 from "@/assets/images/logo2.svg";
 import logoEllipse from "@/assets/images/logo-ellipse.svg";
 import andrea from "@/assets/images/andrea.jpg";
+import notification from "@/assets/icons/notification.svg";
 
 export const AssetsUtils = {
   icons: {
+    notification,
     googleIcon,
     linkedinIcon,
     appleIcon,
