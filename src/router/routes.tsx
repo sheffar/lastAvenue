@@ -10,6 +10,7 @@ import { HomePage } from "@/view/home/HomePage";
 import BuyersInterface from "@/view/product/BuyersInterface";
 import ProductOverview from "@/view/product/ProductOverview";
 import { Settings } from "@/view/supplier/Settings";
+import { SupplierStockList } from "@/view/supplier/StockListView";
 import { Support } from "@/view/supplier/Support";
 
 export const allRoutes = [
@@ -115,6 +116,15 @@ export const allRoutes = [
   {
     component: Settings,
     path: RouterConstantUtil.routes.supplier.settings,
+    meta: {
+      isAuth: true,
+      redirectTo: undefined,
+    },
+    options: {},
+  },
+  {
+    component: SupplierStockList,
+    path: RouterConstantUtil.routes.supplier.stocklist,
     meta: {
       isAuth: true,
       redirectTo: undefined,
