@@ -9,6 +9,8 @@ const ToggleSwitch = ({
   // handleToggle: () => ;
   // name?: string;
 }) => {
+  console.log("toggleVal", toggleValue);
+  
   const [isChecked, setIsChecked] = useState(false);
 
   function handleT() {

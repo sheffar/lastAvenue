@@ -1,14 +1,25 @@
-import { useState } from "react";
-const Tabs = ({ children }) => {
-  const [activeTab, setActiveTab] = useState(children[0].props.label);
-  const handleClick = (e, newActiveTab) => {
+import { ReactNode, useState } from "react";
+
+interface ITabProps {
+  label: string;
+  children: ReactNode;
+}
+
+const Tabs = ({ children }: IChildren) => {
+  // const [activeTab, setActiveTab] = useState<string>(children![0].props.label);
+  const [activeTab, setActiveTab] = useState<string>(
+    (children as React.ReactElement<ITabProps>[])[0].props.label,
+  );
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>, newActiveTab: string) => {
     e.preventDefault();
     setActiveTab(newActiveTab);
   };
+
   return (
     <div className="">
       <div className="flex justify-start border-b border-gray-300">
-        {children.map((child) => (
+        {(children as React.ReactElement<ITabProps>[]).map((child) => (
           <button
             key={child.props.label}
             className={`${
@@ -23,7 +34,7 @@ const Tabs = ({ children }) => {
         ))}
       </div>
       <div className="py-4">
-        {children.map((child) => {
+        {(children as React.ReactElement<ITabProps>[]).map((child) => {
           if (child.props.label === activeTab) {
             return <div key={child.props.label}>{child.props.children}</div>;
           }
@@ -34,12 +45,19 @@ const Tabs = ({ children }) => {
   );
 };
 
-const Tab = ({ label, children }) => {
+// const Tab = ({ label, children }: ITabProps) => {
+//   return (
+//     <div label={label} className="hidden">
+//       {children}
+//     </div>
+//   );
+// };
+
+const Tab = ({ label, children }: ITabProps) => {
   return (
-    <div label={label} className="hidden">
+    <div className="hidden" data-label={label}>
       {children}
     </div>
   );
 };
 export { Tab, Tabs };
-

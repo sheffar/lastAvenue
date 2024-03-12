@@ -1,20 +1,8 @@
-// import { Notification } from "react-huge-icons/outline";
-// import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-// import { User, LogoutOpen } from "react-huge-icons/outline";
-// import { useLocation, useNavigate } from "react-router-dom";
-// import { cn } from "@/utils/helpers";
 import { SearchBar } from "../SearchBar";
 import { Avatar } from "../avatar";
 import { AssetsUtils } from "@/utils/AssetsUtils";
 import { FaEllipsis } from "react-icons/fa6";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
-
-// export interface TopNavProps {
-//   title: string;
-//   desc: string | React.ReactNode;
-// }
-// { desc, title }: TopNavProps
 
 export const DashboardTopNav = () => {
   return (
