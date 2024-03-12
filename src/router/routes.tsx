@@ -9,6 +9,8 @@ import { SetNewPasswordView } from "@/view/auth/SetNewPassword";
 import { HomePage } from "@/view/home/HomePage";
 import BuyersInterface from "@/view/product/BuyersInterface";
 import ProductOverview from "@/view/product/ProductOverview";
+import { Settings } from "@/view/supplier/Settings";
+import { Support } from "@/view/supplier/Support";
 
 export const allRoutes = [
   {
