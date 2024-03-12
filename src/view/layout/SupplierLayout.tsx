@@ -9,14 +9,18 @@ interface ISupplierLayout {
   subtitle?: string;
 }
 
-export const SupplierLayout = ({ title, subtitle, children }: ISupplierLayout & IChildren) => {
+export const SupplierLayout = ({
+  title,
+  subtitle,
+  children,
+}: ISupplierLayout & IChildren) => {
   return (
     <div className={cn("font-light duration-500 ease-out")}>
       <ScrollToTop />
       <div className="max-sm:-20 flex max-sm:min-h-screen">
         <Sidebar />
         <main className=" relative flex w-full flex-col">
-          <div className="sticky top-0 z-10 bg-white">
+          <div className="sticky top-0 z-50 bg-white">
             <DashboardTopNav />
           </div>
           <div className="min-h-screen overflow-y-auto overflow-x-hidden bg-[#E9E9E9] px-5">
@@ -28,7 +32,7 @@ export const SupplierLayout = ({ title, subtitle, children }: ISupplierLayout & 
             >
               <h3 className="font-sans text-2xl font-bold text-[#23272E]"> {title}</h3>
               {subtitle && (
-                <p className="text-[#606060] font-sans text-md leading-tight font-medium">
+                <p className="font-sans text-md font-medium leading-tight text-[#606060]">
                   {subtitle}
                 </p>
               )}
