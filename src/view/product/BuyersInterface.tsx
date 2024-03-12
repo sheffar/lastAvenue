@@ -6,7 +6,7 @@ import { FooterMenu } from "@/router/layout/footer/Footer";
 
 const BuyersInterface = () => {
   return (
-    <div>
+    <div className="bg-white">
       <ProductNav />
 
       <HeroSection />

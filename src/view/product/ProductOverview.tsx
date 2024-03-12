@@ -9,7 +9,7 @@ import { more_from_brand, popular_products } from "./data";
 
 const ProductOverview = () => {
   return (
-    <div className="text-[#212121]">
+    <div className="bg-white text-[#212121]">
       <ProductNav />
 
       <div className="mx-auto mt-4 box-border items-center justify-around md:flex lg:w-5/6">
