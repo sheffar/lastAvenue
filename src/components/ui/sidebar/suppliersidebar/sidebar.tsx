@@ -8,7 +8,7 @@ export const Sidebar = () => {
   return (
     <aside className="transition-[.2s] sticky pl-0 top-0 h-screen w-full max-w-fit border-r border-r-[#D1D1D1] bg-white max-[900px]:hidden md:max-w-[280px] pt-5">
       <div className={cn("flex flex-col gap-y-20")}>
-        <Link to="#" aria-label="Admin" className="sticky top-10 z-20 bg-white">
+        <Link to="" aria-label="Admin" className="sticky top-10 z-20 bg-white">
           <div className="w-[80%] px-2 flex mx-auto flex-row items-center justify-center gap-2">
             <img className="w-full" src={AssetsUtils.images.logoEllipse} alt="logo" />
             <img className="w-full" src={AssetsUtils.images.sidebarlogo1} alt="logo" />

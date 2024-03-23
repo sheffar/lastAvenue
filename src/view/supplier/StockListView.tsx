@@ -16,7 +16,6 @@ export const SupplierStockList = () => {
             iconClassName="text-[#8B909A]"
             placeholder="Search..."
           />
-
           <SelectInput
             defaultValue="View by date range"
             selectClassName="adjust_select_arrow_angle text-sm pr-3 bg-[#FFFFFF] py-0 w-[185px] h-[40px] max-w-full flex-row-reverse rounded-[4px] border-none bg-white pr-3"

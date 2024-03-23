@@ -3,6 +3,7 @@ import { InformationCircle, CheckMarkCircle } from "react-huge-icons/outline";
 import { cn } from "@/utils/helpers";
 import { RxEyeClosed } from "react-icons/rx";
 import { TfiEye } from "react-icons/tfi";
+import { TValues } from "@/components/pages/settings/accountInfo";
 
 interface BaseInputProps {
   label?: string;
@@ -16,6 +17,7 @@ interface BaseInputProps {
   showValidTick?: boolean;
   error?: string;
   readonly?: boolean;
+  reference: any
 }
 export const BaseInput = ({
   label,
@@ -27,19 +29,24 @@ export const BaseInput = ({
   labelClassName,
   showValidTick,
   error,
+  reference,
+  name,
   readOnly,
   ...props
 }: BaseInputProps & InputHTMLAttributes<HTMLInputElement>) => {
   const [showPassword, setShowPassword] = useState(false);
-  // const [inputValue, setInputValue] = useState("");
-  // const [pwdField, setPwdField] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [pwdField, setPwdField] = useState("wdwdwd");
 
-  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setInputValue(e.target.value);
-  //   if (type === "password") {
-  //     setPwdField(showPassword ? "" : "*".repeat(inputValue.length));
-  //   }
-  // };
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    console.log(inputValue)
+    if (type === "password") {
+      setPwdField(showPassword ? "" : "*".repeat(inputValue.length));
+
+    }
+    console.log(inputValue)
+  };
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -67,10 +74,11 @@ export const BaseInput = ({
       >
         <input
           autoComplete="True"
+          ref={reference}
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           // type={"text"}
           className={cn(
-            "text-themeText placeholder:text-[#606060] placeholder-gray-400 placeholder:font-medium h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 pl-[1rem]  pr-[2rem] text-left text-sm font-light outline-none focus:outline-none",
+            "text-themeText placeholder:text-[rgb(96,96,96)] placeholder-gray-400 placeholder:font-medium h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 pl-[1rem]  pr-[2rem] text-left text-sm font-light outline-none focus:outline-none",
             inputClassName,
           )}
           // value={type === "password" && !showPassword ? pwdField : inputValue}

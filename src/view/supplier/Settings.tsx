@@ -5,6 +5,7 @@ import { TopDetailsTab } from "@/components/ui/tabs/TopDetailsTab";
 import { AccountInfo } from "@/components/pages/settings/accountInfo";
 import { Securuty } from "@/components/pages/settings/security";
 import { Notifications } from "@/components/pages/settings/notifications,";
+import Billing from "@/components/pages/settings/billings";
 
 export const Settings = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -32,7 +33,7 @@ export const Settings = () => {
         {activeTab == "account_info" && <AccountInfo />}
         {activeTab == "security" && <Securuty />}
         {activeTab == "notifications" && <Notifications />}
-        {/* {activeTab == "account_info" && <AccountInfo />} */}
+        {activeTab == "billing" && <Billing />}
       </div>
     </SupplierLayout>
   );

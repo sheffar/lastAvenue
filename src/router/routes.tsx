@@ -1,3 +1,6 @@
+import Analytic from "@/components/pages/analytic/Analytic";
+import Home from "@/components/pages/home.tsx/Home";
+import Billing from "@/components/pages/settings/billings";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { ForgotPasswordView } from "@/view/auth/ForgotPassword";
 import { LoginView } from "@/view/auth/LoginView";
@@ -114,6 +117,15 @@ export const allRoutes = [
     options: {},
   },
   {
+    component: Analytic,
+    path: RouterConstantUtil.routes.supplier.analytic,
+    meta: {
+      isAuth: true,
+      redirectTo: undefined,
+    },
+    options: {},
+  },
+  {
     component: Settings,
     path: RouterConstantUtil.routes.supplier.settings,
     meta: {
@@ -125,6 +137,15 @@ export const allRoutes = [
   {
     component: SupplierStockList,
     path: RouterConstantUtil.routes.supplier.stocklist,
+    meta: {
+      isAuth: true,
+      redirectTo: undefined,
+    },
+    options: {},
+  },
+  {
+    component: Home,
+    path: RouterConstantUtil.routes.supplier.home,
     meta: {
       isAuth: true,
       redirectTo: undefined,
