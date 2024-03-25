@@ -9,11 +9,11 @@ export default function Products() {
             <div className="flex gap-2 items-center">
               <div className="h-10 w-10 border-2"></div>
               <div className="">
-                <p>Nike</p>
-                <p className='text-11 text-gray-400'>Airforce 1</p>
+                <p className="text-sm">Nike</p>
+                <p className='text-11 text-gray-400 text-[13px]'>Airforce 1</p>
               </div>
             </div>
-            <p className='font-semibold'>$2,467.53</p>
+            <p className='font-semibold text-[13px]'>$2,467.53</p>
           </div>
         ))}
       </div>

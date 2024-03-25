@@ -19,6 +19,7 @@ body {
 *::-webkit-scrollbar-thumb {
   background-color: gray;
   border-radius: 20px;
+  
 }
 
 
@@ -62,3 +63,22 @@ body {
 }
 
 
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full{
+  height: 100%;
+  width: 100%;
+}
+
+
+.cs-text-green{
+	color: #05CD99;
+}
+
+.cs-text-red{
+	color: #D02626;
+}

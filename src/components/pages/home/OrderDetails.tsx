@@ -25,7 +25,7 @@ export default function OrderDetails() {
         </div>
       </div>
 
-      <div className="grid border-2 text-[13px] p-3 grid-cols-6 gap-3 h-14">
+      <div className="grid border-2 text-[13px] p-3 grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr] gap-3 h-14">
         {titles.map((data, key) => (
           <div className={`justify-center flex items-center gap-2 ${key === 0 ? 'justify-start' : 'justify-center'} `} key={key}>
             {key === 0 && <div className="h-8 w-8 border-2"></div>}

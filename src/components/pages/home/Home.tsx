@@ -12,8 +12,8 @@ import Products from "./Products";
 export default function Home() {
   return (
     <SupplierLayout title={"Home"}>
-      <div className="grid h-screen text-black grid-cols-[1fr_300px] gap-3">
-        <div className="grid grid-rows-[100px_2fr_1fr] gap-3">
+      <div className="block lg:grid h-screen text-black grid-cols-[1fr_300px] gap-3">
+        <div className="grid grid-rows-[100px_auto_auto] gap-3">
           <div className=" grid grid-cols-2 gap-3 rounded-md">
             <div className="rounded-md">
               <Overview
@@ -36,11 +36,11 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="rounded-md bg-white shadow-md">
+          <div className="rounded-md h-full bg-white shadow-md">
             <OrderDetails />
             <OrderCard />
           </div>
-          <div className="rounded-md bg-white">
+          <div className="">
             <Chart />
           </div>
         </div>

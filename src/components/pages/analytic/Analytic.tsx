@@ -1,37 +1,43 @@
 import SupplierLayout from "@/view/layout/SupplierLayout";
-import CompA from "./CompA";
+// import CompA from "./CompA";
 import Countries from "./Countries";
 import { useState } from "react";
+import { totalSpent } from "../_data/discountedAmount";
+
+
+import TotalOrders from "./TotalOrders"
+import TotalOrders2 from "./TotalOrders2"
 
 
 export default function Analytic() {
   const [active, setActive] = useState(0)
-  
+
   const items = [
     ['Customer', 2],
     ['Product', 1.5],
     ['Revenue', 50],
   ]
+
   return (
     <SupplierLayout title={"Settings"}>
       <div className="grid text-black h-screen grid-rows-[1fr_1fr_2fr] gap-3 p-3">
-        <div className="grid grid-cols-3 gap-3">
-          <div className="rounded-md bg-blue-500">
-            <CompA percentage={1.4} text={"Total Orders"} value={"1.4K"} />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 items-center">
+          <div className="rounded-md h-fit">
+            <TotalOrders2 data={totalSpent} title="Total Orders" summary="1.4K" percent="4%" extraClass="cs-text-green" stroke="#1EB564" />
           </div>
-          <div className="rounded-md bg-purple-500">
-            <CompA percentage={1.4} text={"Total Orders"} value={"1.4K"} />
+          <div className="rounded-md h-fit">
+            <TotalOrders2 data={totalSpent} title="Total Profit" summary="40K" percent="10%" extraClass="cs-text-green" stroke="#1EB564" />
           </div>
-          <div className="rounded-md bg-yellow-500">
-            <CompA percentage={1.4} text={"Total Orders"} value={"1.4K"} />
+          <div className="rounded-md h-fit">
+            <TotalOrders2 data={totalSpent} title="Discounted Amount" summary="8K" percent="1.3%" extraClass="cs-text-red" stroke="#D02626" />
           </div>
         </div>
         <div className="grid grid-cols-[1.5fr_1fr] gap-3 rounded-md">
-          <div className="rounded-md bg-red-500">
-            <CompA percentage={1.4} text={"Total Orders"} value={"1.4K"} />
+          <div className="rounded-md">
+            <TotalOrders />
           </div>
-          <div className="rounded-md bg-gray-500">
-            <CompA percentage={1.4} text={"Total Orders"} value={"1.4K"} />
+          <div className="rounded-md">
+          <TotalOrders2 data={totalSpent} title="Total Orders" summary="1.4K" percent="4%" stroke="#1EB564" />
           </div>
         </div>
         <div className="grid grid-cols-[1.5fr_1fr] gap-3 rounded-md">
@@ -43,7 +49,7 @@ export default function Analytic() {
                 <div onClick={() => setActive(key)} className={`cursor-pointer duration-500 font-semibold border-b-[3px] px-2 pb-2 ${active === key ? "border-blue-500" : "border-transparent"}`} key={key}>
                   <p className="text-xl">{data[1]}K</p>
                   <p className="font-normal text-xs">{data[0]}</p>
-                </div>  
+                </div>
               ))}
             </div>
           </div>
@@ -53,6 +59,6 @@ export default function Analytic() {
         </div>
       </div>
     </SupplierLayout>
-    
+
   );
 }

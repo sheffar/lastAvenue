@@ -3,7 +3,6 @@ import { InformationCircle, CheckMarkCircle } from "react-huge-icons/outline";
 import { cn } from "@/utils/helpers";
 import { RxEyeClosed } from "react-icons/rx";
 import { TfiEye } from "react-icons/tfi";
-import { TValues } from "@/components/pages/settings/accountInfo";
 
 interface BaseInputProps {
   label?: string;
@@ -13,11 +12,23 @@ interface BaseInputProps {
   type?: string;
   inputContainerClassName?: string;
   inputClassName?: string;
+  value: any,
   labelClassName?: string;
   showValidTick?: boolean;
+  setValues: React.Dispatch<
+    React.SetStateAction<{
+      fullname: string;
+      email: string;
+      category: string;
+      password: string;
+      confirm_password: string;
+      rememberMe: boolean;
+    }>
+  >;
+  values: any,
   error?: string;
   readonly?: boolean;
-  reference: any
+  reference?: any;
 }
 export const BaseInput = ({
   label,
@@ -28,8 +39,11 @@ export const BaseInput = ({
   inputClassName,
   labelClassName,
   showValidTick,
+  value,
+  values,
   error,
   reference,
+  setValues,
   name,
   readOnly,
   ...props
@@ -39,13 +53,13 @@ export const BaseInput = ({
   const [pwdField, setPwdField] = useState("wdwdwd");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    console.log(inputValue)
+    const {name, value} = e.target
+    setValues({...values, [name]: value})
+    console.log(values)
     if (type === "password") {
       setPwdField(showPassword ? "" : "*".repeat(inputValue.length));
-
     }
-    console.log(inputValue)
+    console.log(inputValue);
   };
 
   const handleTogglePassword = () => {
@@ -75,14 +89,15 @@ export const BaseInput = ({
         <input
           autoComplete="True"
           ref={reference}
+          name={`${name}`}
+          value={value}
+          onChange={handleInputChange}
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           // type={"text"}
           className={cn(
-            "text-themeText placeholder:text-[rgb(96,96,96)] placeholder-gray-400 placeholder:font-medium h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 pl-[1rem]  pr-[2rem] text-left text-sm font-light outline-none focus:outline-none",
+            "text-themeText h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 pl-[1rem] pr-[2rem] text-left text-sm  font-light placeholder-gray-400 outline-none placeholder:font-medium placeholder:text-[rgb(96,96,96)] focus:outline-none",
             inputClassName,
           )}
-          // value={type === "password" && !showPassword ? pwdField : inputValue}
-          // onChange={handleInputChange}
           placeholder={placeholder}
           readOnly={readOnly}
           {...props}

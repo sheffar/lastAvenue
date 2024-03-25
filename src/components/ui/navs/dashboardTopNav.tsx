@@ -6,7 +6,7 @@ import { BaseButton } from "@/components/ui/buttons/BaseButton";
 
 export const DashboardTopNav = () => {
   return (
-    <header className="sticky top-10 flex w-full flex-row justify-between px-3 pr-0 sm:px-10 py-4 sm:py-7">
+    <header className="sticky top-10 flex w-full flex-row justify-between px-3 pr-0 sm:px-10 py-4 sm:py-4">
       <SearchBar
         className="w-2/3 max-w-full flex-row-reverse rounded-[40px] border-[2px] border-[#D3D3D3] pr-3"
         inputClassName="border-none pl-5 font-sans font-medium text-sm text-[#606060] py-2 w-full"

@@ -5,7 +5,7 @@ export default function Withdraw() {
     <div className="p-3 bg-white rounded-md h-full">
       <p>Enter Amount</p>
       <div className="h-14 border-2 mt-5">
-        <div className="h-full w-12 border-r-2 center">
+        <div className="h-full w-12 border-r-2 justify-center items-center flex">
           <p>USD</p>
         </div>
       </div>
@@ -17,7 +17,7 @@ export default function Withdraw() {
               <BsWallet />
               <BsFastForwardBtn />
             </div>
-            <p className="text-base">8564****************</p>
+            <p className="text-base">8564***********</p>
           </div>
           <BsChevronDown className="stroke-1" />
         </div>

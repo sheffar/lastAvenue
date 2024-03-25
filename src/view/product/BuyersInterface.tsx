@@ -19,4 +19,5 @@ const BuyersInterface = () => {
   );
 };
 
+
 export default BuyersInterface;

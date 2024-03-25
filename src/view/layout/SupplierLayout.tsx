@@ -19,11 +19,11 @@ export const SupplierLayout = ({
       <ScrollToTop />
       <div className="max-sm:-20 flex max-sm:min-h-screen">
         <Sidebar />
-        <main className=" relative flex w-full flex-col">
+        <main className=" relative flex h-screen overflow-y-auto w-full flex-col">
           <div className="sticky top-0 z-50 bg-white">
             <DashboardTopNav />
           </div>
-          <div className="min-h-screen overflow-y-auto overflow-x-hidden bg-[#E9E9E9] px-5">
+          <div className="h-screen overflow-y-auto overflow-x-hidden bg-[#E9E9E9] px-5" style={{background: ''}}>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -32,7 +32,7 @@ export const SupplierLayout = ({
             >
               <h3 className="font-sans text-2xl font-bold text-[#23272E]"> {title}</h3>
               {subtitle && (
-                <p className="font-sans text-md font-medium leading-tight text-[#606060]">
+                <p className="font-sans mb-2 text-md font-medium leading-tight text-[#606060]">
                   {subtitle}
                 </p>
               )}

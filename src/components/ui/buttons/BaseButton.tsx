@@ -9,12 +9,14 @@ type BaseButtonProps = {
   hoverScale?: number;
   hoverOpacity?: number;
   tapScale?: number;
+  loading: boolean
   title?: string;
 };
 export const BaseButton = ({
   children,
   containerCLassName,
   onClick,
+  loading,
   hoverScale = 1.1,
   hoverOpacity = 0.9,
   tapScale = 0.8,
@@ -34,7 +36,13 @@ export const BaseButton = ({
       )}
       onClick={onClick}
     >
-      {title || children}
+      {loading ?
+        <p>Loading.....</p>
+        :
+        <div className="">
+          {title || children}
+        </div>
+      }
     </motion.div>
   );
 };

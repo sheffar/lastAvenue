@@ -1,0 +1,32 @@
+[
+  {
+    "label": "SEP",
+    "revenue": 62407,
+    "cost": 26800
+  },
+  {
+    "label": "OCT",
+    "revenue": 82528,
+    "cost":  45324
+  },
+  {
+    "label": "NOV",
+    "revenue": 56979,
+    "cost": 16978
+  },
+  {
+    "label": "DEC",
+    "revenue": 97436,
+    "cost": 42175
+  },
+  {
+    "label": "JAN",
+    "revenue": 64854,
+    "cost": 32652
+  },
+  {
+    "label": "FEB",
+    "revenue": 102628,
+    "cost": 36393
+  }
+]

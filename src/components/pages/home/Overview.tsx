@@ -1,4 +1,4 @@
-import { BsArrowDown, BsArrowUp, BsCurrencyDollar } from "react-icons/bs";
+import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 
 type Props = {
   icon: any;
@@ -18,7 +18,7 @@ export default function Overview({
   text,
 }: Props) {
   return (
-    <div className="flex h-full w-full items-center justify-between rounded-md bg-white p-3 shadow-md">
+    <div className="flex h-full w-full items-center justify-between rounded-md bg-white px-3 py-6 shadow-md">
       <div
         style={{ backgroundColor: `${background}` }}
         className="flex justify-center items-center h-10 w-10 bg-green-500 rounded-full"
