@@ -37,7 +37,7 @@ export default function Analytic() {
             <TotalOrders />
           </div>
           <div className="rounded-md">
-          <TotalOrders2 data={totalSpent} title="Total Orders" summary="1.4K" percent="4%" stroke="#1EB564" />
+            <TotalOrders2 data={totalSpent} title="Total Orders" summary="1.4K" percent="4%" extraClass="cs-text-green" stroke="#1EB564" />
           </div>
         </div>
         <div className="grid grid-cols-[1.5fr_1fr] gap-3 rounded-md">
@@ -52,6 +52,7 @@ export default function Analytic() {
                 </div>
               ))}
             </div>
+            <div>s</div>
           </div>
           <div className="rounded-md">
             <Countries />
