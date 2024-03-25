@@ -10,7 +10,8 @@ export default function OrderCard() {
     "Done",
   ];
   return (
-    <div className="px-3 text-black text-sm overflow-y-auto">
+    <div className="">
+      <div className="px-3 text-black text-sm overflow-y-auto">
       {[1, 2, 3, 4, 5].map(() => (
         <div className="grid hover:bg-blue-200 duration-500 rounded-md hover:font-semibold cursor-pointer  grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr]  text-[13px] border-transparent border-2 px-3 gap-3 h-14">
           {titles.map((data, key) => (
@@ -21,6 +22,7 @@ export default function OrderCard() {
           ))}
         </div>
       ))}
+    </div>
     </div>
   );
 }

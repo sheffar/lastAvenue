@@ -36,9 +36,11 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="rounded-md h-full bg-white shadow-md">
-            <OrderDetails />
-            <OrderCard />
+          <div className="rounded-md bg-white overflow-x-auto h-full shadow-md">
+            <div className="w-[800px] lg:w-full">
+              <OrderDetails />
+              <OrderCard />
+            </div>
           </div>
           <div className="">
             <Chart />

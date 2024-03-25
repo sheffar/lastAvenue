@@ -26,7 +26,7 @@ export default function TotalOrders2({data,title, summary, percent, extraClass, 
       <div className="w-full bg-white mb-2 md:mb-0 p-5 rounded-lg shadow-sm duration-300 hover:shadow-md h-fit">
         <div className="block md:flex mt-5 flex-wrap">
           <div className="w-full md:w-1/2">
-            <div className="text-xl font-semibold">{title}</div>
+            <div className="text-xl font-semibold text-nowrap">{title}</div>
             <div className="text-gray-400">Last 7 days</div>
             <div className="mt-5">
               <div className="font-bold text-4xl">{summary}</div>

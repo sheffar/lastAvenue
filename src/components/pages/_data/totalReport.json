@@ -1,0 +1,30 @@
+[
+  {
+    "label": "MON",
+    "report": 32407
+  },
+  {
+    "label": "TUE",
+    "report": 55528
+  },
+  {
+    "label": "WED",
+    "report": 30000
+  },
+  {
+    "label": "THUR",
+    "report": 27528
+  },
+  {
+    "label": "FRI",
+    "report": 46528
+  },
+  {
+    "label": "SAT",
+    "report": 23528
+  },
+  {
+    "label": "SUN",
+    "report": 55528
+  }
+]

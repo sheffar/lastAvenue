@@ -7,7 +7,7 @@ import { totalSpent } from "../_data/discountedAmount";
 
 import TotalOrders from "./TotalOrders"
 import TotalOrders2 from "./TotalOrders2"
-
+import ReportChart from "./ReportChart"
 
 export default function Analytic() {
   const [active, setActive] = useState(0)
@@ -32,16 +32,16 @@ export default function Analytic() {
             <TotalOrders2 data={totalSpent} title="Discounted Amount" summary="8K" percent="1.3%" extraClass="cs-text-red" stroke="#D02626" />
           </div>
         </div>
-        <div className="grid grid-cols-[1.5fr_1fr] gap-3 rounded-md">
+        <div className="block md:grid grid-cols-[1.5fr_1fr] gap-3 rounded-md">
           <div className="rounded-md">
             <TotalOrders />
           </div>
-          <div className="rounded-md">
+          <div className="mt-2 md:mt-0 rounded-md">
             <TotalOrders2 data={totalSpent} title="Total Orders" summary="1.4K" percent="4%" extraClass="cs-text-green" stroke="#1EB564" />
           </div>
         </div>
-        <div className="grid grid-cols-[1.5fr_1fr] gap-3 rounded-md">
-          <div className="rounded-md bg-white p-4">
+        <div className="block md:grid grid-cols-[1.5fr_1fr] gap-3 rounded-md">
+          <div className="rounded-md flex flex-col bg-white p-4">
             <p className="font-semibold">Reports</p>
             <p className="text-xs">Last 7 Days</p>
             <div className="flex gap-4 items-center text-center mt-5">
@@ -52,9 +52,11 @@ export default function Analytic() {
                 </div>
               ))}
             </div>
-            <div>s</div>
+            <div className="flex-1 mt-">
+              <ReportChart />
+            </div>
           </div>
-          <div className="rounded-md">
+          <div className="mt-2 md:mt-0 rounded-md">
             <Countries />
           </div>
         </div>
