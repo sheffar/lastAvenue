@@ -12,8 +12,8 @@ export default function Withdrawal() {
                 </div>
                 <div className=""></div>
             </div>
-            <div className="mt-2 bg-[#F4F3F3] px-6 rounded-md py-3">
-                <p className='mb-2'>Select a Payment Method</p>
+            <div className="mt-5 bg-[#F4F3F3] border-2 px-6 rounded-md py-3">
+                <p className='mb-2 font-semibold text-15'>Select a Payment Method</p>
                 <div className="flex items-center justify-between">
                     <div className="flex gap-2 items-center">
                         <img src={Wallet} alt="" className='h-5 w-5' />

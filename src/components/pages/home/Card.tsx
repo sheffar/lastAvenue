@@ -9,7 +9,7 @@ type Props = {
 
 export default function Card({ icon, color, title, price }: Props) {
     return (
-        <div className="rounded-xl bg-white shadow h-32 flex justify-between p-4 gap-2 items-center border-2 border-[#D3D3D3]">
+        <div className="rounded-xl bg-white shadow h-32 flex justify-between p-6 gap-2 items-center border-2 border-[#D3D3D3]">
             <div className="h-12 w-12 rounded-full center" style={{ backgroundColor: `${color}` }}>
                 <img src={`${icon}`} className="h-8 w-8 object-contain" alt="" />
             </div>

@@ -28,7 +28,7 @@ export const SupplierLayout = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
-              className="pb-48 pl-5 pr-3 pt-7 max-sm:px-0 xl:pl-14"
+              className="pb-48 pl-7 pr-3 pt-7 max-sm:px-0"
             >
               <h3 className="font-sans text-2xl font-bold text-[#23272E]"> {title}</h3>
               {subtitle && (

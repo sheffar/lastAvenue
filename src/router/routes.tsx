@@ -1,3 +1,4 @@
+import Main from "@/components/pages/add/Main";
 import Home from "@/components/pages/home/Home";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { ForgotPasswordView } from "@/view/auth/ForgotPassword";
@@ -27,6 +28,15 @@ export const allRoutes = [
   {
     component: RegistrationView,
     path: RouterConstantUtil.routes.auth.register,
+    meta: {
+      isAuth: false,
+      redirectTo: undefined,
+    },
+    options: {},
+  },
+  {
+    component: Main,
+    path: RouterConstantUtil.routes.supplier.add,
     meta: {
       isAuth: false,
       redirectTo: undefined,

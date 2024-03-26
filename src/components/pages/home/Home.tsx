@@ -5,10 +5,12 @@ import Exchange from '../../../assets/icons/chart.svg'
 import Table from './Table'
 import Chart from './Chart'
 import Withdrawal from './Withdrawal'
+import Products from './Product'
+import TopSelling from './TopSelling'
 export default function Home() {
   return (
     <SupplierLayout title='Home'>
-      <div className="grid min-h-screen grid-cols-[1fr_300px] gap-4">
+      <div className="grid text-black min-h-screen grid-cols-[1fr_300px] gap-4">
         <div className="">
 
           <div className=" rounded-md gap-3 grid grid-cols-2">
@@ -20,6 +22,8 @@ export default function Home() {
         </div>
         <div className="">
           <Withdrawal />
+          <TopSelling />
+          <Products />
         </div>
       </div>
     </SupplierLayout>
