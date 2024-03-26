@@ -17,6 +17,7 @@ export const RouterConstantUtil = {
       stocklist: "/supplier/stocklist",
       support: "/supplier/support",
       settings: "/supplier/settings",
+      home: "/supplier/home",
     },
     product: {
       buyer_interface: "/products",
