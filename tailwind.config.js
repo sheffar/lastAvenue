@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        "btncolor": "#F4F7FE",
+        "btnyellow": "#FFE458",
+      }
+    },
     fontFamily: {
       inter: ["Inter", "sans-serif"],
       jost: ["Jost", "sans-serif"],
