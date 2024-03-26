@@ -1,16 +1,26 @@
 import { BsChevronDown } from "react-icons/bs";
 
-export default function CountryCard() {
+type Props = {
+  country: {
+    country: string 
+    imgUrl: string 
+    number: number
+  }
+  key: number
+}
+
+
+export default function CountryCard({country}: Props) {
   return (
     <div className="flex items-center mt-3 gap-3">
       <div className="flex text-xs text-black items-center gap-5">
         <div className="flex gap-2 items-center">
-          <div className="h-10 w-10 rounded-full overflow-hidden border-2">
-
+          <div className="h-10 w-10 rounded-full overflow-hidden shadow">
+        <img src={`${country.imgUrl}`} className="h-full w-full object-cover" alt="" />
           </div>
           <div className="">
-            <p className="text-black font-semibold">750</p>
-            <p className="text-gray-400">United States</p>
+            <p className="text-black font-semibold">{country.number}</p>
+            <p className="text-gray-400">{country.country}</p>
           </div>
         </div>
       </div>

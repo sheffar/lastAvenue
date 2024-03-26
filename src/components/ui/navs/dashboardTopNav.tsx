@@ -15,7 +15,7 @@ export const DashboardTopNav = () => {
       />
       {/* <button className="relative"></button> */}
       <div className="flex items-center gap-1 sm:gap-7">
-        <BaseButton containerCLassName="relative">
+        <BaseButton loading={false} containerCLassName="relative">
           <img className="w-6 h-6 sm:h-7 sm:w-7" src={AssetsUtils.icons.notification} alt="" />
           <span className="absolute right-[4px] top-1 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#EA5455] text-sm font-semibold text-white">
             4

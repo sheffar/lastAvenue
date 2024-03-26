@@ -67,6 +67,7 @@ export const ResetPasswordLayout = ({
 
         <BaseButton
           hoverOpacity={0.9}
+          loading={false}
           hoverScale={1.05}
           containerCLassName="bg-[#232323] rounded-[8px] w-full py-[24px] font-medium text-[16px] text-[#F7FAFC]"
           title={buttonTitle}

@@ -1,13 +1,19 @@
 import { Tab, Tabs } from "@/components/product/Tabs";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
-import { BaseInput } from "@/components/ui/data-inputs/text-input";
 import ProductNav from "@/components/ui/navs/ProductNav";
 import { FooterMenu } from "@/router/layout/footer/Footer";
 import { AssetsUtils } from "@/utils/AssetsUtils";
-import React from "react";
+import React, { useState } from "react";
 import { more_from_brand, popular_products } from "./data";
+import CustomInput from "@/components/ui/data-inputs/CustomInput";
 
 const ProductOverview = () => {
+  const [values, setValues] = useState({
+    email: ""
+  })
+  const [errors, setErrors] = useState({
+    email: ""
+  })
   return (
     <div className="bg-white text-[#212121]">
       <ProductNav />
@@ -46,6 +52,7 @@ const ProductOverview = () => {
           </div>
 
           <BaseButton
+            loading={false}
             hoverScale={1}
             containerCLassName="rounded-md bg-[#212121] text-white font-public-sans text-lg font-semibold"
           >
@@ -58,6 +65,7 @@ const ProductOverview = () => {
             <p className="text-center text-xl font-medium">Or order via</p>
             <BaseButton
               hoverScale={1}
+              loading={false}
               containerCLassName="bg-transparent font-medium border-[#232323] text-xl border-[2.7px] rounded-md py-7 px-4 flex gap-4 justify-start"
             >
               <img src={AssetsUtils.icons.envelope} alt="envlope_icon" />
@@ -65,6 +73,8 @@ const ProductOverview = () => {
             </BaseButton>
             <BaseButton
               hoverScale={1}
+              loading={false}
+
               containerCLassName="bg-transparent font-medium border-[#232323] text-xl border-[2.7px] rounded-md py-7 px-4 flex gap-4 justify-start"
             >
               <img src={AssetsUtils.icons.telephone} alt="envlope_icon" />
@@ -179,9 +189,17 @@ const ProductOverview = () => {
                       alt="gift_icon"
                       className="absolute bottom-[13px] left-4"
                     />
-                    <BaseInput
-                      placeholder="Input receipt's email address"
-                      inputClassName="border-2 border-[#232323] rounded-md text-lg pl-16 py-3"
+                    <CustomInput
+                      value={values.email}
+                      label={"Email"}
+                      placeholder={"Email"}
+                      type={"email"}
+                      name={"email"}
+                      values={values}
+                      setValues={setValues}
+                      errors={errors}
+                      setErrors={setErrors}
+                      error={errors.email}
                     />
                   </div>
                 </div>

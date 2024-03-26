@@ -2,7 +2,7 @@ import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import SocialsLogin from "@/components/ui/buttons/SocialsLogin";
 import { APPNAME } from "@/utils/constants";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
 import CustomInput from "@/components/ui/data-inputs/CustomInput";
 import { useEffect, useState } from "react";
@@ -14,7 +14,6 @@ export const LoginView = () => {
   const [remember, setRemember] = useState(false)
   const [loading, setLoading] = useState(false)
   const [fromError, setFormError] = useState("")
-  const navigate = useNavigate()
 
   const [values, setValues] = useState({
     email: "",

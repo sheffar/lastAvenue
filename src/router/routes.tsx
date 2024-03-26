@@ -1,6 +1,5 @@
 import Analytic from "@/components/pages/analytic/Analytic";
 import Home from "@/components/pages/home/Home";
-import Billing from "@/components/pages/settings/billings";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { ForgotPasswordView } from "@/view/auth/ForgotPassword";
 import { LoginView } from "@/view/auth/LoginView";

@@ -2,12 +2,23 @@ import { useNavigate } from "react-router-dom";
 import { AssetsUtils } from "@/utils/AssetsUtils";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { ResetPasswordLayout } from "@/view/layout/ResetPasswodLayout";
-import { BaseInput } from "@/components/ui/data-inputs/text-input";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { FaRegCheckCircle } from "react-icons/fa";
+import CustomInput from "@/components/ui/data-inputs/CustomInput";
+import { useState } from "react";
 
 export const SetNewPasswordView = () => {
   const navigate = useNavigate();
+
+  const [values, setValues] = useState({
+    password: "",
+    confirm_password: ""
+  })
+  const [errors, setErrors] = useState({
+    password: "",
+    confirm_password: ""
+
+  })
 
   const handleButtonClick = () => {
     navigate(RouterConstantUtil.routes.auth.password_reset_successful);
@@ -26,14 +37,21 @@ export const SetNewPasswordView = () => {
     >
       <div className="mb-3 flex w-full flex-col gap-3">
         {" "}
-        <BaseInput
-          inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pr-3"
-          inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-          label="Password"
-          type="password"
-          labelClassName="text-medium text-[16px]"
+      
+        <CustomInput
+          value={values.password}
+          label={"Password"}
           placeholder="Enter your password"
+          type={"password"}
+          name={"password"}
+          values={values}
+          setValues={setValues}
+          errors={errors}
+          setErrors={setErrors}
+          error={errors.password}
         />
+
+
         <div className="flex flex-row items-center gap-4">
           <div className="flex flex-row items-center gap-2">
             <span className="text-md font-medium text-[#888888]">strong</span>
@@ -44,14 +62,17 @@ export const SetNewPasswordView = () => {
             <FaRegCheckCircle className="text-[25px]" />
           </div>
         </div>
-        <BaseInput
-          inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pr-3"
-          inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-          label="Confirm Password"
-          type="password"
-          labelClassName="text-medium text-[16px]"
+        <CustomInput
+          value={values.confirm_password}
+          label={"Password"}
           placeholder="Re-enter your password"
-          containerClassname="mt-3"
+          type={"password"}
+          name={"confirm_password"}
+          values={values}
+          setValues={setValues}
+          errors={errors}
+          setErrors={setErrors}
+          error={errors.confirm_password}
         />
         <span className="ml-auto">
           <IoMdCheckmarkCircle className="text-[28px]" />

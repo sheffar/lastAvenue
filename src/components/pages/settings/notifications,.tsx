@@ -136,10 +136,12 @@ export const Notifications = () => {
       </div>
       <div className="flex gap-7 flex-col justify-center sm:flex-row sm:justify-between">
         <BaseButton
+          loading={false}
           title="Deactivate Account"
           containerCLassName="py-0 mt-6 h-auto rounded-[8px] mr-auto ml-8 p-0 bg-none text-[#D9182B] font-sans font-bold text-sm"
         />
         <BaseButton
+          loading={false}
           title="Save Changes"
           containerCLassName="py-[23px] mt-6 h-[65px] rounded-[8px] mr-auto m-0 sm:ml-auto px-[48px] bg-[#232323] text-white font-sans font-bold text-sm"
         />

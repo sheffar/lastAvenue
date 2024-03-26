@@ -10,7 +10,7 @@ export const AvenueCollection: FunctionComponent = () => {
         <div className="grid grid-cols-2">
           <img src={AssetsUtils.images.avenueImage} alt={"showcase"} />
           <div className="absolute left-[4.6rem] top-44 flex h-full w-1/2 items-center p-8 text-lg font-semibold text-black 2xl:left-[8.5rem] 2xl:top-60">
-            <BaseButton containerCLassName="bg-black mt-14 rounded-none w-fit px-20 text-white">
+            <BaseButton loading={false} containerCLassName="bg-black mt-14 rounded-none w-fit px-20 text-white">
               {"Explore"}
             </BaseButton>
           </div>

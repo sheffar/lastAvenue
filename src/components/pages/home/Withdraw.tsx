@@ -2,7 +2,7 @@ import { BsChevronDown, BsFastForwardBtn, BsWallet } from "react-icons/bs";
 
 export default function Withdraw() {
   return (
-    <div className="p-3 bg-white rounded-md h-full">
+    <div className="p-3 bg-white rounded-md h-fit">
       <p className="font-bold">Enter Amount</p>
       <div className="h-14 border-2 mt-2 rounded-lg">
         <div className="h-full w-12 border-r-2 justify-center items-center flex">

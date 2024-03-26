@@ -1,10 +1,21 @@
 import BulletIcon from "@/components/icons/BulletIcon";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import ToggleSwitch from "@/components/ui/buttons/ToggleSwitch";
-import { BaseInput } from "@/components/ui/data-inputs/text-input";
+import CustomInput from "@/components/ui/data-inputs/CustomInput";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export const Securuty = () => {
+  const [values, setValues] = useState({
+    current_password: '',
+    new_password: '',
+    confirm_password: '',
+  })
+  const [errors, setErrors] = useState({
+    current_password: '',
+    new_password: '',
+    confirm_password: '',
+  })
   return (
     <motion.div
       initial={{ opacity: 0, x: 1100 }}
@@ -49,34 +60,46 @@ export const Securuty = () => {
         </h3>
 
         <div>
-          <form>
-            <BaseInput
-              label="Current Password"
-              type="password"
-              placeholder="Enter your old password"
-              containerClassname="mt-3"
-              inputClassName="border-none text-[#606060] px-3 font-medium text-md"
-              inputContainerClassName="pr-5 h-[60px] bg-[#E9E9E9] border-2 rounded-[10px] border-[#E9E9E9] pl-1"
-              labelClassName="font-normal font-sans text-[#232323] text-md"
+          <form className="mt-4">
+            <CustomInput
+              value={values.current_password}
+              label={"Current Password"}
+              placeholder="Enter your Current password"
+              type={"password"}
+              name={"current_password"}
+              values={values}
+              setValues={setValues}
+              errors={errors}
+              setErrors={setErrors}
+              error={errors.current_password}
             />
-            <BaseInput
-              label="New Password"
-              type="password"
-              placeholder="Enter your new password"
-              containerClassname="mt-3"
-              inputClassName="border-none text-[#606060] px-3 font-medium text-md"
-              inputContainerClassName="pr-5 h-[60px] bg-[#E9E9E9] border-2 rounded-[10px] border-[#E9E9E9] pl-1"
-              labelClassName="font-normal font-sans text-[#232323] text-md"
+            <br />
+            <CustomInput
+              value={values.new_password}
+              label={"New Password"}
+              placeholder="Enter your New password"
+              type={"password"}
+              name={"new_password"}
+              values={values}
+              setValues={setValues}
+              errors={errors}
+              setErrors={setErrors}
+              error={errors.new_password}
             />
-            <BaseInput
-              label="Confirm New Password"
-              type="password"
-              placeholder="Re-enter your new password"
-              containerClassname="mt-3"
-              inputClassName="border-none text-[#606060] px-3 font-medium text-md"
-              inputContainerClassName="pr-5 h-[60px] bg-[#E9E9E9] border-2 rounded-[10px] border-[#E9E9E9] pl-1"
-              labelClassName="font-normal font-sans text-[#232323] text-md"
+            <br />
+            <CustomInput
+              value={values.confirm_password}
+              label={"Confirm Password"}
+              placeholder="Confirm your password"
+              type={"password"}
+              name={"confirm_password"}
+              values={values}
+              setValues={setValues}
+              errors={errors}
+              setErrors={setErrors}
+              error={errors.confirm_password}
             />
+            
           </form>
         </div>
 
@@ -127,6 +150,7 @@ export const Securuty = () => {
       </div>
       <BaseButton
         title="Save Changes"
+        loading={false}
         containerCLassName="w-fit py-[23px] mt-8 h-[65px] rounded-[8px] ml-auto px-[48px] bg-[#232323] text-white font-sans font-bold text-sm"
       />
     </motion.div>

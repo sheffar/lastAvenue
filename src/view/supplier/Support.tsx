@@ -25,6 +25,7 @@ export const Support = () => {
             <NewTicketsInputs />
           </div>
           <BaseButton
+            loading={false}
             title="Submit Ticket"
             containerCLassName="py-[23px] mt-6 h-[65px] rounded-[8px] ml-auto px-[48px] bg-[#232323] text-white font-sans font-bold text-sm"
           />

@@ -11,7 +11,7 @@ type Props = {
   setValues: any;
   name: string;
   setErrors: any;
-  error: string;
+  error?: string;
 };
 
 export default function CustomInput({
@@ -40,7 +40,7 @@ export default function CustomInput({
         {label}
       </label>
       <div
-        className={`relative h-12 rounded-md border shadow ${error.trim() === "" ? "border-gray-600 bg-white" : "border-red-600 bg-red-100"} `}
+        className={`relative h-12 rounded-md border shadow ${error?.trim() === "" ? "border-gray-600 bg-white" : "border-red-600 bg-red-100"} `}
       >
         <input
           type={`${type !== "password" ? "text" : `${isPassword ? "password" : "text"}`}`}
@@ -68,7 +68,7 @@ export default function CustomInput({
         )}
       </div>
       <div
-        className={`w-full duration-300 ${error.trim() === "" ? "h-0 overflow-hidden" : "h-6 overflow-visible "}`}
+        className={`w-full duration-300 ${error?.trim() === "" ? "h-0 overflow-hidden" : "h-6 overflow-visible "}`}
       >
         <p className={`text-13 text-red-500 mt-1 duration-200 `}>{error}</p>
       </div>

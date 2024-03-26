@@ -132,7 +132,7 @@ export const ShopByCategory: React.FC<{ shoes: IShoes[] }> = ({ shoes }) => {
               );
             })}
           </div>
-          <BaseButton containerCLassName="bg-black mt-12 rounded-none w-fit px-20 text-white">
+          <BaseButton loading={false} containerCLassName="bg-black mt-12 rounded-none w-fit px-20 text-white">
             {"View All"}
           </BaseButton>
         </div>
