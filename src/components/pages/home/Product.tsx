@@ -4,7 +4,7 @@ import Nike2 from '../../../assets/icons/nike2.svg'
 
   
   export default function Products() {
-    const nikes = [Nike1, Nike2]
+  
     const [collapsed, setCollapsed] = useState(true)
     return (
         <div className={`overflow-hidden duration-300 mt-3 bg-white rounded-md shadow-md w-full p-3`}>
