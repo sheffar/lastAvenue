@@ -1,5 +1,4 @@
 import { BsArrowUp } from "react-icons/bs";
-import { FaSortUp } from "react-icons/fa6";
 import {
   LineChart,
   Line,
@@ -8,7 +7,7 @@ import {
 } from 'recharts';
 
 type Props = {
-  color: string
+  color?: string
   type: string
   header?: string
   figure?: number
@@ -21,43 +20,36 @@ const data1 = [
     name: 'Mon',
     uv: 200,
     pv: 0,
-    amt: 2400,
   },
   {
     name: 'Tue',
-    uv: 500,
-    pv: 200,
-    amt: 2210,
+    uv: 600,
+    pv: 100,
   },
   {
     name: 'Wed',
-    uv: 300,
-    pv: 100,
-    amt: 2290,
+    uv: 200,
+    pv: 0,
   },
   {
     name: 'Thu',
-    uv: 800,
-    pv: 300,
-    amt: 2000,
+    uv: 600,
+    pv: 100,
   },
   {
     name: 'Fri',
-    uv: 700,
-    pv: 250,
-    amt: 2181,
+    uv: 200,
+    pv: 0,
   },
   {
     name: 'Sat',
-    uv: 1000,
-    pv: 500,
-    amt: 2500,
+    uv: 600,
+    pv: 125,
   },
   {
     name: 'Sun',
-    uv: 900,
-    pv: 350,
-    amt: 2100,
+    uv: 200,
+    pv: 0,
   },
 ];
 
@@ -109,12 +101,12 @@ export default function Chart({ type, color, header,figure }: Props) {
       <div className={` h-36 center ${type === 'B' ? 'lg:flex-[2]' : 'lg:flex-1'}`}>
         {type === 'A' && <ResponsiveContainer width="100%" height="50%">
           <LineChart width={300} height={100} data={data}>
-            <Line type="monotone"  strokeWidth={3} dot={false} dataKey="pv" stroke={`${color}`} />
+            <Line type="monotone"  strokeWidth={2} dot={false} dataKey="pv" stroke={`${color}`} />
             <feDropShadow dx="0" dy="10" stdDeviation="10"/>
           </LineChart>
         </ResponsiveContainer>}
         {type === 'B' &&
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="80%">
             <LineChart
               width={500}
               height={500}
@@ -140,7 +132,7 @@ export default function Chart({ type, color, header,figure }: Props) {
         {type === 'C' &&
           <ResponsiveContainer width="100%" height="100%">
             <LineChart width={500} height={300} data={data1}>
-              <XAxis dataKey="name"  tickLine={false}  padding={{ left: 30, right: 30 }} />
+              <XAxis dataKey="name"  tickLine={false} />
               <Line type="monotone"  strokeWidth={3} dot={false} dataKey="pv" stroke="red" activeDot={{ r: 8 }} />
               <Line type="monotone" strokeWidth={3} dot={false} dataKey="uv" stroke="#82ca9d" />
             </LineChart>

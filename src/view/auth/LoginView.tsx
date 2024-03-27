@@ -6,9 +6,18 @@ import { APPNAME } from "@/utils/constants";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
+import { useState } from "react";
 
 export const LoginView = () => {
   document.title = `Login | ${APPNAME}`;
+  const [values, setValues] = useState({
+    email: '',
+    password: '',
+  })
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+  })
 
   return (
     <AuthLayout parentClassname="max-md:items-start overflow-y-hidden">
@@ -30,6 +39,10 @@ export const LoginView = () => {
             inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pr-3"
             inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
             label="Password"
+            value={values.email}
+            error={errors.email}
+            setErrors={setErrors}
+            setValues={setValues}
             type="password"
             labelClassName="text-medium text-[16px]"
             placeholder="Enter your password"

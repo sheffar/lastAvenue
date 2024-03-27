@@ -17,7 +17,7 @@ export const AuthNavigator = ({
 
 //   if (auth_required) {
 //     return isAuth ? (
-//       elem
+//       elem````````````````````````````````1`!11111111111111`1````````````````````````````1
 //     ) : (
 //       <Navigate
 //         to={RouterConstantUtil.routes.auth.login}

@@ -5,7 +5,6 @@ import { socialIcons } from "./data";
 export const FooterMenu: FunctionComponent = () => {
   return (
     <>
-      {" "}
       <div className="text-gray-1000 font-header-7 relative mt-20 box-border flex w-full max-w-full flex-row items-start justify-between gap-[20px] bg-gray-100 px-10 py-8 text-left  text-xl lg:flex-wrap 2xl:px-14">
         <div className="flex items-start justify-between gap-20 2xl:gap-40">
           <div className="flex flex-col items-start justify-start gap-[24px_0px]">

@@ -13,8 +13,19 @@ interface BaseInputProps {
   inputContainerClassName?: string;
   inputClassName?: string;
   labelClassName?: string;
+  setErrors?: React.Dispatch<React.SetStateAction<{
+    email: string;
+    password: string;
+  }>>
+  setValues?: React.Dispatch<React.SetStateAction<{
+    email: string;
+    password: string;
+  }>>
   showValidTick?: boolean;
   error?: string;
+  value?: string;
+  icon?: string
+  showEye?: boolean
   readonly?: boolean;
 }
 export const BaseInput = ({
@@ -23,10 +34,15 @@ export const BaseInput = ({
   containerClassname,
   type,
   inputContainerClassName,
-  inputClassName,
-  labelClassName,
-  showValidTick,
+  value, 
   error,
+  setErrors,
+  setValues,
+  inputClassName,
+  icon,
+  labelClassName,
+  showEye,
+  showValidTick,
   readOnly,
   ...props
 }: BaseInputProps & InputHTMLAttributes<HTMLInputElement>) => {
@@ -65,8 +81,10 @@ export const BaseInput = ({
           inputContainerClassName,
         )}
       >
+        <img src={icon} alt="" />
         <input
           autoComplete="True"
+          value={value}
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           // type={"text"}
           className={cn(
@@ -79,18 +97,20 @@ export const BaseInput = ({
           readOnly={readOnly}
           {...props}
         />
-        {type == "password" &&
-          (showPassword ? (
-            <RxEyeClosed
-              onClick={handleTogglePassword}
-              className="cursor-pointer text-[30px] text-[#111110]"
-            />
-          ) : (
-            <TfiEye
-              onClick={handleTogglePassword}
-              className="cursor-pointer text-[30px] text-[#111110]"
-            />
-          ))}
+        {showEye && <div className="">
+          {type == "password" &&
+            (showPassword ? (
+              <RxEyeClosed
+                onClick={handleTogglePassword}
+                className="cursor-pointer text-[30px] text-[#111110]"
+              />
+            ) : (
+              <TfiEye
+                onClick={handleTogglePassword}
+                className="cursor-pointer text-[30px] text-[#111110]"
+              />
+            ))}
+        </div>}
         {showValidTick && <CheckMarkCircle className="ml-3 text-[30px] text-[green]" />}
       </div>
       {error && (
