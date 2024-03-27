@@ -1,4 +1,5 @@
 import Main from "@/components/pages/add/Main";
+import Analytic from "@/components/pages/analytic/Analytic";
 import Home from "@/components/pages/home/Home";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { ForgotPasswordView } from "@/view/auth/ForgotPassword";
@@ -37,6 +38,15 @@ export const allRoutes = [
   {
     component: Main,
     path: RouterConstantUtil.routes.supplier.add,
+    meta: {
+      isAuth: false,
+      redirectTo: undefined,
+    },
+    options: {},
+  },
+  {
+    component: Analytic,
+    path: RouterConstantUtil.routes.supplier.analytics,
     meta: {
       isAuth: false,
       redirectTo: undefined,

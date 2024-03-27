@@ -64,3 +64,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.transs{
+  background-image: linear-gradient(to top, rgb(240, 244, 248), white);
+  transition: 1s all;
+}

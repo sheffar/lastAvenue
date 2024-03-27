@@ -11,56 +11,55 @@ export default function Main() {
   const [activeColor, setActiveColor] = useState(0)
 
   return (
-    <SupplierLayout title="Add New Product" subtitle="When adding products,, make sure to fill in completely all the required details.">
-      <div className="grid bg-white p-5 rounded-lg shadow-md mt-4 min-h-screen gap-7 grid-cols-2">
-        <div className="">
+    <SupplierLayout title="Add New Product" subtitle="When adding products, make sure to fill in completely all the required details.">
+      <div className="block lg:grid bg-white p-5 rounded-lg shadow-md mt-4 min-h-screen gap-7 md:grid-cols-[1.5fr_1fr] lg:grid-cols-2">
+        <div className="flex flex-col gap-9">
           <div className="">
             <Input label="Product Name" />
             <p className="text-end text-13">Limit: 30 words</p>
           </div>
-          <div className="grid mt-7 grid-cols-[1.5fr_1fr] gap-4">
+          <div className="flex flex-col lg:grid grid-cols-[1.5fr_1fr] gap-5">
             <Select label="Category" options={['Male', 'Female']} />
             <div className="">
               <Select label="Gender" options={['Male', 'Female']} />
             </div>
           </div>
-          <div className="mt-7">
-          <Select label="Brand" options={['Male', 'Female']} />
-
+          <div className="">
+            <Select label="Brand" options={['Male', 'Female']} />
           </div>
-          <div className="flex justify-between mt-7 items-center">
+          <div className="flex flex-col flex-wrap gap-5 lg:flex-row justify-between lg:items-center">
             <p className="font-semibold text-sm">Add Size</p>
             <div className="flex gap-3">
               {['XS', 'S', 'M', 'L', 'XL'].map((size, key: number) => (
-                <p key={key} className={`px-4 text-sm border-2 font-semibold py-2 rounded-md  ${activeSize === key ? 'bg-btncolor border-gray-600' : 'border-transparent bg-gray-200'} duration-300 hover:bg-gray-300 cursor-pointer`} onClick={() => setActiveSize(key)}>{size}</p>
+                <p key={key} className={`p-3 text-13 border-2 font-semibold rounded-md  ${activeSize === key ? 'bg-btncolor border-gray-600' : 'border-transparent bg-gray-200'} duration-300 hover:bg-gray-300 cursor-pointer`} onClick={() => setActiveSize(key)}>{size}</p>
               ))}
             </div>
-            <div className="flex gap-3">
-              <div className="h-10 w-10 center rounded-full cursor-pointer border-2">
+            <div className="flex gap-5 lg:gap-3">
+              <div className="h-8 lg:h-10 w-8 lg:w-10 center rounded-full cursor-pointer border-2">
                 <img src={Plus} alt="" className="w-4 h-4" />
               </div>
-              <div className="h-10 w-10 center rounded-full cursor-pointer border-2">
+              <div className="h-8 lg:h-10 w-8 lg:w-10 center rounded-full cursor-pointer border-2">
                 <img src={Trash} alt="" className="w-4 h-4" />
               </div>
             </div>
           </div>
-          <div className="flex justify-between mt-7 items-center">
+          <div className="flex flex-col lg:flex-row justify-between gap-5 lg:items-center">
             <p className="font-semibold text-sm">Color Variant</p>
-            <div className="flex gap-3">
+            <div className="flex gap-5 lg:gap-3">
               {[1, 2, 3,].map((size, key: number) => (
-                <div onClick={() => setActiveColor(key)} key={key} className={`h-10 w-10 rounded-full duration-300 cursor-pointer border-2 ${key === activeColor ? 'shadow-lg border-black' : 'border-transparent'} ${key === 0 && 'bg-red-500'}  ${key === 1 && 'bg-purple-500'}  ${key === 2 && 'bg-emerald-500'} `}></div>
+                <div onClick={() => setActiveColor(key)} key={key} className={`w-8 h-8 lg:h-10 lg:w-10 rounded-full duration-300 cursor-pointer border-2 ${key === activeColor ? 'shadow-lg border-black' : 'border-transparent'} ${key === 0 && 'bg-red-500'}  ${key === 1 && 'bg-purple-500'}  ${key === 2 && 'bg-emerald-500'} `}></div>
               ))}
             </div>
             <div className="flex gap-3">
-              <div className="h-10 w-10 center rounded-full cursor-pointer border-2">
+              <div className="h-8 w-8 lg:h-10 lg:w-10 center rounded-full cursor-pointer border-2">
                 <img src={Plus} alt="" className="w-4 h-4" />
               </div>
-              <div className="h-10 w-10 center rounded-full cursor-pointer border-2">
+              <div className="h-8 w-8 lg:h-10 lg:w-10 center rounded-full cursor-pointer border-2">
                 <img src={Trash} alt="" className="w-4 h-4" />
               </div>
             </div>
           </div>
-          <div className="mt-7">
+          <div className="">
             <p className="font-semibold text-15 mb-1">Product Description</p>
             <div className="h-56 border-2 rounded-lg"></div>
             <p className="text-13 text-end">Limit: 40 Words</p>
