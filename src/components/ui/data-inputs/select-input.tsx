@@ -8,6 +8,7 @@ export const SelectInput = ({
   selectClassName,
   selectStyles,
   label,
+  value,
   containerClassname,
   labelClassname,
   optionClassname,
@@ -18,6 +19,7 @@ export const SelectInput = ({
   selectClassName?: string;
   selectStyles?: CSSProperties;
   label?: string;
+  value?: string
   containerClassname?: string;
   labelClassname?: string;
   optionClassname?: string;
@@ -31,6 +33,7 @@ export const SelectInput = ({
       )}
       <select
         id={name}
+        value={value} 
         name={name}
         className={cn(
           "adjust_select_arrow text-md h-14 w-full cursor-pointer rounded-[10px] py-3 pl-[1rem] pr-[2rem]  text-left font-normal text-[#606060] outline-none focus:outline-none",
@@ -53,7 +56,7 @@ export const SelectInput = ({
           <option
             key={idx}
             className={cn(optionClassname)}
-            value={item.toLocaleUpperCase()}
+            value={item}
           >
             {item}
           </option>

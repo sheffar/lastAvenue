@@ -6,14 +6,106 @@ import { APPNAME } from "@/utils/constants";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
+import { useState } from "react";
+import { SignupURL } from "@/services/urls/urls";
+import axios from "axios";
 
 export const RegistrationView = () => {
   document.title = `Register | ${APPNAME}`;
 
   const navigate = useNavigate();
+ 
 
-  const handleRegistration = () => {
-    navigate(RouterConstantUtil.routes.auth.registration_successful);
+
+  const [fullname, setFullname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [role, setRole] = useState('');
+
+  setConfirmPassword('')
+  setRole('')
+
+  const [fullnameError, setFullnameError] = useState('');
+  const [lastnameError, setLastnameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [roleError, setRoleError] = useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
+
+  const [loading, setLoading] = useState(false)
+
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[A-Z0-9. _%+-]+@[A-Z0-9. -]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  }
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setEmailError('');
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+    setPasswordError('');
+  };
+  const handleFullnameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFullname(e.target.value);
+    setFullnameError('');
+  };
+  const handleLastnameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLastname(e.target.value);
+    setLastnameError('');
+  };
+  const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFullname(e.target.value);
+    setFullnameError('');
+  };
+
+
+
+  const handleSubmit = async () => {
+    roleError
+    console.log(loading);
+    navigate('/')
+
+    if (!email || !password || !role || !fullname || !lastname) {
+      setEmailError(email ? '' : 'Please fill in your email address')
+      setFullnameError(fullname ? '' : 'Please fill in your firstname')
+      setLastnameError(lastname ? '' : 'Please fill in your lastname')
+      setRoleError(role ? '' : 'Please select from the dropdown')
+      setPasswordError(role ? '' : 'Please input a password')
+      setConfirmPasswordError(role ? '' : 'Please input a password')
+      return
+    }
+
+    if (!isValidEmail(email)) {
+      setEmailError('Please fill in a valid email address')
+      return
+    }
+
+    if (password.trim().length < 8 || confirmPassword.trim().length < 8) {
+      setPasswordError(password.trim().length < 8 ? 'Password cannot be less than 8 character' : '')
+      setConfirmPasswordError(confirmPassword.trim().length < 8 ? 'Password cannot be less than 8 character' : '')
+      return
+    }
+    if (password !== confirmPassword) {
+      setConfirmPasswordError('Passwords dont match')
+      setPasswordError('Passwords dont match')
+      return
+    }
+
+
+
+    try {
+      const response = await axios.post(SignupURL, { email, fullname, lastname, role, password });
+      console.log(response);
+      setLoading(false)
+    } catch (error) {
+      console.log(error);
+      setLoading(false)
+    }
   };
 
   return (
@@ -37,33 +129,58 @@ export const RegistrationView = () => {
             inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
             inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
             label="Email Address"
+            value={email}
+            onChange={handleEmailChange}
+            error={emailError}
+            type="text"
             labelClassName="text-medium text-[16px]"
             placeholder="Enter your email"
           />
           <BaseInput
             inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
             inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
-            label="Full Name"
+            label="Fullname"
+            value={fullname}
+            onChange={handleFullnameChange}
+            error={fullnameError}
+            type="text"
             labelClassName="text-medium text-[16px]"
             placeholder="Enter your fullname"
           />
           <BaseInput
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pr-3"
             inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-            label="Password"
-            type="password"
+            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
+            label="Lastname"
+            value={lastname}
+            onChange={handleLastnameChange}
+            error={lastnameError}
+            type="text"
             labelClassName="text-medium text-[16px]"
-            placeholder="Enter your password"
+            placeholder="Enter your fullname"
           />
           <BaseInput
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pr-3"
             inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-            label="Confirm Password"
-            type="password"
+            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
+            label="Password"
+            value={password}
+            onChange={handlePasswordChange}
+            error={passwordError}
+            type="text"
             labelClassName="text-medium text-[16px]"
-            placeholder="Re-enter your password"
+            placeholder="Password"
           />
-
+          <BaseInput
+            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
+            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
+            label="Password"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+            error={confirmPasswordError}
+            type="text"
+            labelClassName="text-medium text-[16px]"
+            placeholder="Confirm Password"
+          />
+         
           <div className={"flex flex-row items-start justify-start gap-2"}>
             <input
               type="checkbox"
@@ -93,7 +210,7 @@ export const RegistrationView = () => {
             hoverScale={1.05}
             containerCLassName="bg-[#232323] rounded-[8px] w-full py-[24px] font-medium text-[16px] text-[#F7FAFC]"
             title={"Register"}
-            onClick={handleRegistration}
+            onClick={handleSubmit}
           />
           <p className={"text-md text-center font-medium text-[#212121]"}>
             Already have an account?{" "}

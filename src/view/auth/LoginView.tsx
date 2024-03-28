@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
 import { useState } from "react";
 import axios from "axios";
+import { LoginURL } from "@/services/urls/urls";
 
 export type TLoginValues = {
   email: string
@@ -16,12 +17,16 @@ export type TLoginValues = {
 
 export const LoginView = () => {
   document.title = `Login | ${APPNAME}`;
-  const url = "https://last-avenue-api.onrender.com/api/v1/auth/login"
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [loading, setLoading] = useState(false)
+
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[A-Z0-9. _%+-]+@[A-Z0-9. -]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  }
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -37,21 +42,25 @@ export const LoginView = () => {
 
   const handleSubmit = async () => {
     console.log(email, password);
-    if (!email) {
-      setEmailError('Email is required');
+    if (!email || !password) {
+      setEmailError(email.trim() === "" ? 'Email is required' : "");
+      setPasswordError(password.trim() === "" ? 'Password is required' : "");
       return
     }
 
-    if (!password) {
-      setPasswordError('Password is required');
+    if (!isValidEmail(email)) {
+      setEmailError('Please input a valid email');
       return
     }
+    setLoading(true)
 
     try {
-      const response = await axios.post(url, { email, password });
+      const response = await axios.post(LoginURL, { email, password });
       console.log(response);
+      setLoading(false)
     } catch (error) {
       console.log(error);
+      setLoading(false)
     }
   };
 
