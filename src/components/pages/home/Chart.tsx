@@ -12,6 +12,7 @@ import {
 
 export default function Chart() {
 
+    
     const data1 = [
         {
           name: 'SEPT',
@@ -47,7 +48,7 @@ export default function Chart() {
       ];
 
     return (
-        <div className='bg-white mt-5 rounded-lg p-4'>
+        <div className='bg-white mt-5 rounded-lg lg:h-80 p-4'>
             <div className="flex justify-between items-center mb-3">
                 <div className="flex gap-2 text-sm p-2 rounded-lg bg-btncolor w-fit">
                     <img src={Calender} alt="" />

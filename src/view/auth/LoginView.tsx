@@ -7,17 +7,54 @@ import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
 import { useState } from "react";
+import axios from "axios";
+
+export type TLoginValues = {
+  email: string
+  password: string
+}
 
 export const LoginView = () => {
   document.title = `Login | ${APPNAME}`;
-  const [values, setValues] = useState({
-    email: '',
-    password: '',
-  })
-  const [errors, setErrors] = useState({
-    email: '',
-    password: '',
-  })
+  const url = "https://last-avenue-api.onrender.com/api/v1/auth/login"
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [loading, setLoading] = useState(false)
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setEmailError('');
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+    setPasswordError('');
+  };
+
+
+
+  const handleSubmit = async () => {
+    console.log(email, password);
+    if (!email) {
+      setEmailError('Email is required');
+      return
+    }
+
+    if (!password) {
+      setPasswordError('Password is required');
+      return
+    }
+
+    try {
+      const response = await axios.post(url, { email, password });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   return (
     <AuthLayout parentClassname="max-md:items-start overflow-y-hidden">
@@ -31,22 +68,25 @@ export const LoginView = () => {
             inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
             inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
             label="Email Address"
+            value={email}
+            onChange={handleEmailChange}
+            error={emailError}
+            type="text"
             labelClassName="text-medium text-[16px]"
             placeholder="Enter your email"
           />
-
           <BaseInput
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pr-3"
             inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
+            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
             label="Password"
-            value={values.email}
-            error={errors.email}
-            setErrors={setErrors}
-            setValues={setValues}
-            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            error={passwordError}
+            type="text"
             labelClassName="text-medium text-[16px]"
-            placeholder="Enter your password"
+            placeholder="Enter your Password"
           />
+
 
           <div className={"flex flex-row flex-wrap items-center justify-between gap-2"}>
             <Checkbox
@@ -61,7 +101,9 @@ export const LoginView = () => {
             </Link>
           </div>
           <BaseButton
+            onClick={handleSubmit}
             hoverOpacity={0.9}
+            loading={loading}
             hoverScale={1.05}
             containerCLassName="bg-[#232323] rounded-[8px] w-full py-[24px] font-medium text-[16px] text-[#F7FAFC]"
             title={"Sign In"}

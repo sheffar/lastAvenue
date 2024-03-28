@@ -7,6 +7,7 @@ interface IBaseTable {
   showPagination?: boolean;
   lastColorChanged?: boolean;
   headers: string[];
+  checkbox?:boolean
   headersClassName?: string;
   tableRows: (string | Record<string, string | boolean | undefined>)[][];
 }
@@ -15,6 +16,7 @@ export const BaseTable = ({
   showPagination = false,
   lastColorChanged = false,
   headers,
+  checkbox,
   headersClassName,
   tableRows,
 }: IBaseTable) => {
@@ -30,7 +32,7 @@ export const BaseTable = ({
             status={statusColorCode(row?.statusText?.toString())}
             text={row?.statusText?.toString() || ""}
           />
-        );
+        );  
       } else if (row.hasAvatar) {
         return (
           <Avatar
@@ -61,6 +63,7 @@ export const BaseTable = ({
             >
               {headers.map((headr: string, idx: number) => (
                 <th key={idx} className="pb-4 pt-5">
+                  {checkbox && idx === 0 &&<input type="checkbox" name="" className="mr-2" />}
                   {headr.toUpperCase()}
                 </th>
               ))}
@@ -88,6 +91,7 @@ export const BaseTable = ({
                           "cursor-pointer py-5 text-[#0F60FF]",
                       )}
                     >
+                  {checkbox && _i === 0 &&<input type="checkbox" name="" className="mr-2" />}
                       {handleTableRowAppend(item)}
                     </td>
                   ))}

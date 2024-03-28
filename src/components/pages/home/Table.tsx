@@ -1,4 +1,4 @@
-import { BsFilter } from "react-icons/bs"
+import { BaseTable } from "@/components/ui/table/BaseTable"
 
 export default function Table() {
     const headers = ['Product name', 'Product ID', 'Transaction Date', 'Transaction ID', 'Amount', 'Status']
@@ -12,55 +12,8 @@ export default function Table() {
         ['Nike airforce 1', 'NKA1234A', '23 Jul 2023', 'ONSXXAGA', '$1,200.00', 'Done'],
     ]
     return (
-        <div className="bg-white mt-5 p-3 rounded-md">
-            <div className="flex font-semibold h-12 px-3 mt-5 rounded-md items-center justify-between">
-                <p>Order Details</p>
-                <div className="hidden lg:flex gap-4 items-center">
-                    <div className="flex text-sm bg-btncolor p-2 rounded-md gap-2 items-center">
-                        <BsFilter />
-                        <p>Filter</p>
-                    </div>
-                    <div className="flex text-sm bg-btncolor p-2 rounded-md gap-2 items-center">
-                        <BsFilter />
-                        <p>Download Report</p>
-                    </div>
-                </div>
-            </div>
-            <div className="flex lg:hidden justify-between gap-4 items-center">
-                <div className="flex text-sm bg-btncolor p-2 rounded-md gap-2 items-center">
-                    <BsFilter />
-                    <p>Filter</p>
-                </div>
-                <div className="flex text-sm bg-btncolor p-2 rounded-md gap-2 items-center">
-                    <BsFilter />
-                    <p>Download Report</p>
-                </div>
-            </div>
-            <div className="p-3 overflow-x-auto w-full rounded-md text-sm">
-                <div className="w-[800px] lg:w-full">
-                    <div className="grid border-2 grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr] mb-4 font-semibold lg:w-full">
-                        {headers.map((data, key) => (
-                            <div className="flex  text-xs py-2 items-center gap-2 justify-center" key={key}>
-                                {key === 0 && <div className="h-6 w-6 border-2 rounded-sm"></div>}
-                                <p> {data}</p>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="space-y-5">
-                        {products.map((product, key) => (
-                            <div key={key} className="grid text-xs grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr] ">
-                                {product.map((data, key) => (
-                                    <div className="flex items-center gap-2 justify-center" key={key}>
-                                        {key === 0 && <div className="h-6 w-6 border-2 rounded-sm"></div>}
-                                        <p> {data}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-            </div>
-        </div>
+       <div className="mt-5">
+        <BaseTable checkbox={true} headers={headers} tableRows={products}/>
+       </div>
     )
 }

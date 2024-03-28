@@ -14,8 +14,9 @@ import Nike2 from '../../../assets/icons/nike2.svg'
             <div className="flex justify-between " key={key}>
               <div className="flex gap-4 items-center">
                 <div className="h-10 w-10 rounded-lg">
-                  <img src={`${key % 2 === 0 ? Nike1 : Nike2}`} className="h-full w-full object-cover" alt="" />
+                  <img src={`${key % 2 === 0 ? Nike1 : Nike2}`} className={`h-full w-full object-cover ${nike}`} alt="" />
                 </div>
+                
                 <div className="">
                   <p className="text-sm font-semibold">Nike</p>
                   <p className='text-gray-400 text-xs'>Airforce 1</p>

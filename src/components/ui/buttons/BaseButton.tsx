@@ -9,14 +9,18 @@ type BaseButtonProps = {
   hoverScale?: number;
   hoverOpacity?: number;
   tapScale?: number;
+  loading?: boolean
+  icon?: any
   title?: string;
 };
 export const BaseButton = ({
   children,
   containerCLassName,
   onClick,
+  loading,
   hoverScale = 1.1,
   hoverOpacity = 0.9,
+  icon,
   tapScale = 0.8,
   title,
 }: BaseButtonProps) => {
@@ -34,7 +38,12 @@ export const BaseButton = ({
       )}
       onClick={onClick}
     >
-      {title || children}
+      {loading ? 'Loading....' :
+        <div className="flex items-center gap-2">
+          {icon}
+          {title || children}
+        </div>
+      }
     </motion.div>
   );
 };

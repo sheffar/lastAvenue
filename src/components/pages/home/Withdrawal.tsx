@@ -1,6 +1,7 @@
 import Wallet from '../../../assets/icons/wallet.svg'
 import Master from '../../../assets/icons/master.svg'
-import { BsChevronDown } from 'react-icons/bs'
+import { BaseInput } from '@/components/ui/data-inputs/text-input'
+import { BaseButton } from '@/components/ui/buttons/BaseButton'
 
 export default function Withdrawal() {
     return (
@@ -10,7 +11,9 @@ export default function Withdrawal() {
                 <div className="border-r-2 border-gray-300 center">
                     <p className='font-semibold text-lg'>USD</p>
                 </div>
-                <div className=""></div>
+                <div className="">
+                    <BaseInput inputClassName={'border-none'}/>
+            </div>
             </div>
             <div className="mt-5 bg-[#F4F3F3] border-2 px-6 rounded-md py-3">
                 <p className='mb-2 font-semibold text-15'>Select a Payment Method</p>
@@ -18,14 +21,16 @@ export default function Withdrawal() {
                     <div className="flex gap-2 items-center">
                         <img src={Wallet} alt="" className='h-5 w-5' />
                         <img src={Master} alt="" className='' />
-                        <p className='font-semibold text-sm'>1322************</p>
+                        <select name="" className="w-full h-full cursor-pointer font-semibold outline-none border-none bg-transparent">
+                            <option value="">1234*********</option>
+                            <option value="">Paypal</option>
+                            <option value="">Bitcoin</option>
+                            <option value="">Etherum</option>
+                        </select>
                     </div>
-                    <BsChevronDown className='stroke-1 text-sm'/>
                 </div>
             </div>
-            <button className='p-4 rounded-lg font-semibold bg-btnyellow text-sm w-full mt-4 shadow'>
-                Withdraw Money
-            </button>
+            <BaseButton title='Withdraw Money' containerCLassName='bg-[#FFE458] text-black text-sm mt-5 font-semibold' />
         </div>
     )
 }

@@ -1,8 +1,9 @@
 import { CSSProperties, InputHTMLAttributes, useState } from "react";
 import { InformationCircle, CheckMarkCircle } from "react-huge-icons/outline";
 import { cn } from "@/utils/helpers";
-import { RxEyeClosed } from "react-icons/rx";
+import { RxEyeClosed } from "react-icons/rx"
 import { TfiEye } from "react-icons/tfi";
+
 
 interface BaseInputProps {
   label?: string;
@@ -13,17 +14,11 @@ interface BaseInputProps {
   inputContainerClassName?: string;
   inputClassName?: string;
   labelClassName?: string;
-  setErrors?: React.Dispatch<React.SetStateAction<{
-    email: string;
-    password: string;
-  }>>
-  setValues?: React.Dispatch<React.SetStateAction<{
-    email: string;
-    password: string;
-  }>>
   showValidTick?: boolean;
-  error?: string;
+  title?: string
   value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  error?: string;
   icon?: string
   showEye?: boolean
   readonly?: boolean;
@@ -33,11 +28,12 @@ export const BaseInput = ({
   placeholder,
   containerClassname,
   type,
+  name,
   inputContainerClassName,
-  value, 
+  value,
+  title,
   error,
-  setErrors,
-  setValues,
+  onChange,
   inputClassName,
   icon,
   labelClassName,
@@ -72,7 +68,7 @@ export const BaseInput = ({
           )}
         ></h1>
       )}
-
+      {title}
       <div
         style={{ opacity: readOnly ? ".5" : 1 }}
         className={cn(
@@ -85,6 +81,7 @@ export const BaseInput = ({
         <input
           autoComplete="True"
           value={value}
+          onChange={onChange}
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           // type={"text"}
           className={cn(

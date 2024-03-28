@@ -1,71 +1,70 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import { BaseInput } from "@/components/ui/data-inputs/text-input";
 import Icon from '../../../assets/icons/master.svg'
 import { BsPlus } from "react-icons/bs";
 
-type TError = {
-  email?: string
-  card_name: string
-  expiry_date: string
-  card_number: string
-  country: string
-  state: string
-  postal_code: string
-  address: string
-  cvv: string
-}
-type TValues = {
-  email?: string
-  card_name: string
-  expiry_date: string
-  card_number: string
-  country: string
-  state: string
-  postal_code: string
-  address: string
-  cvv: string
-}
+// type TError = {
+//   email?: string
+//   card_name: string
+//   expiry_date: string
+//   card_number: string
+//   country: string
+//   state: string
+//   postal_code: string
+//   address: string
+//   cvv: string
+// }
+// type TValues = {
+//   email?: string
+//   card_name: string
+//   expiry_date: string
+//   card_number: string
+//   country: string
+//   state: string
+//   postal_code: string
+//   address: string
+//   cvv: string
+// }
 
 export default function Billing() {
-  const [values, setValues] = useState<TValues>({
-    email: "",
-    card_name: "",
-    expiry_date: "",
-    card_number: "",
-    country: "",
-    state: "",
-    postal_code: "",
-    address: "",
-    cvv: ""
-  })
-  const [errors, setErrors] = useState<TError>({
-    email: "",
-    card_name: "",
-    expiry_date: "",
-    card_number: "",
-    country: "",
-    state: "",
-    postal_code: "",
-    address: "",
-    cvv: ""
-  })
+  // const [values, setValues] = useState<TValues>({
+  //   email: "",
+  //   card_name: "",
+  //   expiry_date: "",
+  //   card_number: "",
+  //   country: "",
+  //   state: "",
+  //   postal_code: "",
+  //   address: "",
+  //   cvv: ""
+  // })
+  // const [errors, setErrors] = useState<TError>({
+  //   email: "",
+  //   card_name: "",
+  //   expiry_date: "",
+  //   card_number: "",
+  //   country: "",
+  //   state: "",
+  //   postal_code: "",
+  //   address: "",
+  //   cvv: ""
+  // })
 
-  const Submit = () => {
-    if (!values.card_name || !values.expiry_date || !values.card_number || !values.country || !values.state || !values.postal_code || !values.address || !values.cvv) {
-      setErrors({
-        card_name: values.card_name.trim() === "" ? "Please fill in this field" : "",
-        card_number: values.card_number.trim() === "" ? "Please fill in this field" : "",
-        expiry_date: values.expiry_date.trim() === "" ? "Please fill in this field" : "",
-        country: values.country.trim() === "" ? "Please fill in this field" : "",
-        state: values.state.trim() === "" ? "Please fill in this field" : "",
-        postal_code: values.postal_code.trim() === "" ? "Please fill in this field" : "",
-        address: values.address.trim() === "" ? "Please fill in this field" : "",
-        cvv: values.cvv.trim() === "" ? "Please fill in this field" : "",
-      })
-    }
-  }
+  // const Submit = () => {
+  //   if (!values.card_name || !values.expiry_date || !values.card_number || !values.country || !values.state || !values.postal_code || !values.address || !values.cvv) {
+  //     setErrors({
+  //       card_name: values.card_name.trim() === "" ? "Please fill in this field" : "",
+  //       card_number: values.card_number.trim() === "" ? "Please fill in this field" : "",
+  //       expiry_date: values.expiry_date.trim() === "" ? "Please fill in this field" : "",
+  //       country: values.country.trim() === "" ? "Please fill in this field" : "",
+  //       state: values.state.trim() === "" ? "Please fill in this field" : "",
+  //       postal_code: values.postal_code.trim() === "" ? "Please fill in this field" : "",
+  //       address: values.address.trim() === "" ? "Please fill in this field" : "",
+  //       cvv: values.cvv.trim() === "" ? "Please fill in this field" : "",
+  //     })
+  //   }
+  // }
 
   return (
     <motion.div
