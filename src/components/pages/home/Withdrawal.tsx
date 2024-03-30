@@ -2,8 +2,21 @@ import Wallet from '../../../assets/icons/wallet.svg'
 import Master from '../../../assets/icons/master.svg'
 import { BaseInput } from '@/components/ui/data-inputs/text-input'
 import { BaseButton } from '@/components/ui/buttons/BaseButton'
+import { useState } from 'react'
 
 export default function Withdrawal() {
+    const [input, setInput] = useState('')
+    const handleInputChamge = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value
+        const numbersOnly = /^\d+$/;
+        if (numbersOnly.test(value)) {
+            setInput(value);
+          }
+          if(value.length === 1){
+            
+          }
+        
+    }
     return (
         <div className='p-4 bg-white rounded-lg shadow-md '>
             <p className="font-semibold text-base mb-1">Enter Amount</p>
@@ -12,8 +25,8 @@ export default function Withdrawal() {
                     <p className='font-semibold text-lg'>USD</p>
                 </div>
                 <div className="">
-                    <BaseInput inputClassName={'border-none'}/>
-            </div>
+                    <BaseInput value={input} onChange={handleInputChamge} inputClassName={'border-none'} />
+                </div>
             </div>
             <div className="mt-5 bg-[#F4F3F3] border-2 px-6 rounded-md py-3">
                 <p className='mb-2 font-semibold text-15'>Select a Payment Method</p>
@@ -30,7 +43,7 @@ export default function Withdrawal() {
                     </div>
                 </div>
             </div>
-            <BaseButton title='Withdraw Money' containerCLassName='bg-[#FFE458] text-black text-sm mt-5 font-semibold' />
+            <BaseButton tapScale={1.025} hoverScale={1.075} title='Withdraw Money' containerCLassName='bg-[#FFE458] text-black text-sm mt-5 font-semibold' />
         </div>
     )
 }

@@ -2,12 +2,13 @@ import { Avatar } from "@/components/ui/avatar/index";
 import { PaginationTabs } from "@/components/ui/tabs/PaginationTabs";
 import { cn, statusColorCode } from "@/utils/helpers";
 import { Badge } from "../badge";
+import { Checkbox } from "../data-inputs/FilterCheckbox";
 
 interface IBaseTable {
   showPagination?: boolean;
   lastColorChanged?: boolean;
   headers: string[];
-  checkbox?:boolean
+  checkbox?: boolean
   headersClassName?: string;
   tableRows: (string | Record<string, string | boolean | undefined>)[][];
 }
@@ -32,7 +33,7 @@ export const BaseTable = ({
             status={statusColorCode(row?.statusText?.toString())}
             text={row?.statusText?.toString() || ""}
           />
-        );  
+        );
       } else if (row.hasAvatar) {
         return (
           <Avatar
@@ -63,8 +64,11 @@ export const BaseTable = ({
             >
               {headers.map((headr: string, idx: number) => (
                 <th key={idx} className="pb-4 pt-5">
-                  {checkbox && idx === 0 &&<input type="checkbox" name="" className="mr-2" />}
-                  {headr.toUpperCase()}
+                  <span className="flex items-center">
+
+                    {idx === 0 && <Checkbox label="" checkboxClassname="h-5 w-5 rounded inline" />}
+                    {headr.toUpperCase()}
+                  </span>
                 </th>
               ))}
             </tr>
@@ -87,12 +91,14 @@ export const BaseTable = ({
                       key={_i}
                       className={cn(
                         lastColorChanged &&
-                          tableRows[idx].length == _i + 1 &&
-                          "cursor-pointer py-5 text-[#0F60FF]",
+                        tableRows[idx].length == _i + 1 &&
+                        "cursor-pointer py-5 text-[#0F60FF]",
                       )}
                     >
-                  {checkbox && _i === 0 &&<input type="checkbox" name="" className="mr-2" />}
-                      {handleTableRowAppend(item)}
+                      <span className="flex items-center">
+                        {checkbox && _i === 0 && <Checkbox label="" checkboxClassname="h-5 w-5 rounded inline" />}
+                        {handleTableRowAppend(item)}
+                      </span>
                     </td>
                   ))}
                 </tr>

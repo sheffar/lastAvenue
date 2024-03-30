@@ -1,14 +1,15 @@
 import { CSSProperties } from "react";
 import { cn } from "@/utils/helpers";
-
+import { InformationCircle } from "react-huge-icons/solid";
 export const SelectInput = ({
   name,
   defaultValue,
   options,
   selectClassName,
   selectStyles,
+  error,
+  register,
   label,
-  value,
   containerClassname,
   labelClassname,
   optionClassname,
@@ -17,11 +18,13 @@ export const SelectInput = ({
   defaultValue?: string;
   options?: string[];
   selectClassName?: string;
+  error?: string
   selectStyles?: CSSProperties;
   label?: string;
-  value?: string
+  register?: any
   containerClassname?: string;
   labelClassname?: string;
+  onChange?: any;
   optionClassname?: string;
 }) => {
   return (
@@ -33,8 +36,8 @@ export const SelectInput = ({
       )}
       <select
         id={name}
-        value={value} 
-        name={name}
+        {...register(`${name}`)}
+        name={name} 
         className={cn(
           "adjust_select_arrow text-md h-14 w-full cursor-pointer rounded-[10px] py-3 pl-[1rem] pr-[2rem]  text-left font-normal text-[#606060] outline-none focus:outline-none",
           selectClassName,
@@ -62,6 +65,11 @@ export const SelectInput = ({
           </option>
         ))}
       </select>
+      {error && (
+        <p className="mb-4 flex items-center gap-2 text-[18px] mt-1 leading-[15px] text-[red]">
+          <InformationCircle /> {error}
+        </p>
+      )}
     </div>
   );
 };

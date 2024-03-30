@@ -3,6 +3,7 @@ import { InformationCircle, CheckMarkCircle } from "react-huge-icons/outline";
 import { cn } from "@/utils/helpers";
 import { RxEyeClosed } from "react-icons/rx"
 import { TfiEye } from "react-icons/tfi";
+import { FieldError } from "react-hook-form";
 
 
 interface BaseInputProps {
@@ -17,13 +18,15 @@ interface BaseInputProps {
   showValidTick?: boolean;
   title?: string
   value?: string;
+  name?: string
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   error?: string;
   icon?: string
+  register?: any
   showEye?: boolean
   readonly?: boolean;
 }
-export const BaseInput = ({
+export const  BaseInput = ({
   label,
   placeholder,
   containerClassname,
@@ -31,6 +34,7 @@ export const BaseInput = ({
   name,
   inputContainerClassName,
   value,
+  register,
   title,
   error,
   onChange,
@@ -63,7 +67,7 @@ export const BaseInput = ({
         <h1
           dangerouslySetInnerHTML={{ __html: label }}
           className={cn(
-            "text-blackColor font-darkerGrotesque-bold mb-2  text-left text-[28px] font-medium leading-[25px]",
+            "text-blackColor font-darkerGrotesque-bold mb-1 text-left text-[28px] font-medium leading-[25px]",
             labelClassName,
           )}
         ></h1>
@@ -80,8 +84,8 @@ export const BaseInput = ({
         <img src={icon} alt="" />
         <input
           autoComplete="True"
-          value={value}
-          onChange={onChange}
+          name={name}
+          {...register(`${name}`)}
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           // type={"text"}
           className={cn(
@@ -111,7 +115,7 @@ export const BaseInput = ({
         {showValidTick && <CheckMarkCircle className="ml-3 text-[30px] text-[green]" />}
       </div>
       {error && (
-        <p className="mb-4 flex items-center gap-2 text-[20px] leading-[15px] text-[red]">
+        <p className="mb-4 flex items-center gap-2 text-[18px] mt-1 leading-[15px] text-[red]">
           <InformationCircle /> {error}
         </p>
       )}

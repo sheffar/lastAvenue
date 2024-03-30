@@ -10,6 +10,7 @@ type BaseButtonProps = {
   hoverOpacity?: number;
   tapScale?: number;
   loading?: boolean
+  background?: string
   icon?: any
   title?: string;
 };
@@ -17,6 +18,7 @@ export const BaseButton = ({
   children,
   containerCLassName,
   onClick,
+  background,
   loading,
   hoverScale = 1.1,
   hoverOpacity = 0.9,
@@ -25,12 +27,13 @@ export const BaseButton = ({
   title,
 }: BaseButtonProps) => {
   return (
-    <motion.div
+    <motion.button
       whileHover={{
         scale: hoverScale,
         opacity: hoverOpacity,
         transition: { duration: 0.1 },
       }}
+      style={{backgroundColor: `${background}`}}
       whileTap={{ scale: tapScale, borderRadius: "15px" }}
       className={cn(
         "flex h-[45px] cursor-pointer select-none items-center justify-center rounded-[12px]  p-[10px] text-center",
@@ -44,6 +47,6 @@ export const BaseButton = ({
           {title || children}
         </div>
       }
-    </motion.div>
+    </motion.button>
   );
 };
