@@ -3,6 +3,7 @@ import Master from '../../../assets/icons/master.svg'
 import { BaseInput } from '@/components/ui/data-inputs/text-input'
 import { BaseButton } from '@/components/ui/buttons/BaseButton'
 import { useState } from 'react'
+import { BaseInput2 } from '@/components/ui/data-inputs/BaseInput2'
 
 export default function Withdrawal() {
     const [input, setInput] = useState('')
@@ -25,7 +26,7 @@ export default function Withdrawal() {
                     <p className='font-semibold text-lg'>USD</p>
                 </div>
                 <div className="">
-                    <BaseInput value={input} onChange={handleInputChamge} inputClassName={'border-none'} />
+                    <BaseInput2 value={input} onChange={handleInputChamge} inputClassName={'border-none'} />
                 </div>
             </div>
             <div className="mt-5 bg-[#F4F3F3] border-2 px-6 rounded-md py-3">

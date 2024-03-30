@@ -15,12 +15,15 @@ import { z } from 'zod'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 export const RegistrationView = () => {
+
   document.title = `Register | ${APPNAME}`;
+
+  const api = "https://last-avenue-api.onrender.com/api/v1/auth/signup"
   const schema = z.object({
-    firstname: z.string().min(1, {message: 'Please add your Firstname'}),
-    lastname: z.string().min(2, {message: 'Please add a Lastname'}),
+    firstname: z.string().min(1, { message: 'Please add your Firstname' }),
+    surname: z.string().min(2, { message: 'Please add a Surname' }),
     email: z.string().email(),
-    role: z.string().min(1, {message: 'Please select a role from the dropdown'}),
+    role: z.string().min(1, { message: 'Please select a role from the dropdown' }),
     password: z.string().min(8),
     confirm_password: z.string().min(8)
   }).refine((data) => data.password === data.confirm_password, {
@@ -28,14 +31,25 @@ export const RegistrationView = () => {
     path: ['confirm_password']
   })
 
+  const navigate = useNavigate()
+
 
   type TFORM = z.infer<typeof schema>
 
-  const { register, handleSubmit, formState: { errors } } = useForm<TFORM>({
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<TFORM>({
     resolver: zodResolver(schema)
   })
 
-  const SubmitForm = (data: TFORM) => {
+  const SubmitForm = async (data: TFORM) => {
+    try {
+      const response = await axios.post(api, data);
+      if (response.status === 201) {
+        navigate('/auth/login')
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
     console.log(data);
   }
 
@@ -49,7 +63,7 @@ export const RegistrationView = () => {
         </p>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit(SubmitForm)}>
           <SelectInput
-            options={["Buyer", "Seller"]}
+            options={["buyer", "seller"]}
             defaultValue="-- --"
             label="Sign up as a"
             name="role"
@@ -60,58 +74,60 @@ export const RegistrationView = () => {
             selectClassName="w-2/4 bg-[#E9E9E9E9]"
           />
           <BaseInput
-            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
+            inputContainerClassName="border-[#E9E9E9] h-[55px] border-2 text-[#232323] font-bold text-[16px]"
+            inputClassName="border-none pl-2 w-full h-full"
             label="Email Address"
             name="email"
             error={errors.email?.message}
             register={register}
             type="text"
-            labelClassName="text-medium text-[16px]"
+            labelClassName="text-medium pl-1 text-[16px]"
             placeholder="Enter your email"
           />
           <BaseInput
-            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
-            label="firstname"
+            inputContainerClassName=" border-[#E9E9E9] pr-2 h-[55px] border-2 text-[#232323] font-bold text-[16px]"
+            inputClassName="border-none pl-2 w-full h-full"
+            label="Firstname"
             name="firstname"
             register={register}
             error={errors.firstname?.message}
             type="text"
-            labelClassName="text-medium text-[16px]"
-            placeholder="Enter your fullname"
+            labelClassName="text-medium pl-1 text-[16px]"
+            placeholder="Enter your Firstname"
           />
           <BaseInput
-            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
-            error={errors.lastname?.message}
-            label="Lastname"
-            name="lastname"
+            inputContainerClassName=" border-[#E9E9E9] pr-2 h-[55px] border-2 text-[#232323] font-bold text-[16px]"
+            inputClassName="border-none pl-2 w-full h-full"
+            error={errors.surname?.message}
+            label="Surname"
+            name="surname"
             register={register}
             type="text"
-            labelClassName="text-medium text-[16px]"
-            placeholder="Enter your fullname"
+            labelClassName="text-medium pl-1 text-[16px]"
+            placeholder="Enter your Surname"
           />
           <BaseInput
-            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
+            inputContainerClassName=" border-[#E9E9E9] flex pr-2 h-[55px] border-2 text-[#232323] font-bold text-[16px]"
+            inputClassName="border-none pl-2 w-full h-full"
             label="Password"
             type="password"
             error={errors.password?.message}
             name="password"
             register={register}
-            labelClassName="text-medium text-[16px]"
+            showEye={true}
+            labelClassName="text-medium pl-1 text-[16px]"
             placeholder="Password"
           />
           <BaseInput
-            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
+            inputContainerClassName=" border-[#E9E9E9] flex item-center pr-2 h-[55px] border-2 text-[#232323] font-bold text-[16px]"
+            inputClassName="border-none pl-2 w-full h-full"
             label="Password"
             error={errors.confirm_password?.message}
             name="confirm_password"
+            showEye={true}
             register={register}
             type="password"
-            labelClassName="text-medium text-[16px]"
+            labelClassName="text-medium pl-1 text-[16px]"
             placeholder="Confirm Password"
           />
           <div className={"flex flex-row items-start justify-start gap-2"}>
@@ -140,8 +156,8 @@ export const RegistrationView = () => {
           </div>
           <BaseButton
             hoverOpacity={0.9}
-
             hoverScale={1.05}
+            isSubmitting={isSubmitting}
             containerCLassName="bg-[#232323] rounded-[8px] w-full py-[24px] font-medium text-[16px] text-[#F7FAFC]"
             title={"Register"}
           />

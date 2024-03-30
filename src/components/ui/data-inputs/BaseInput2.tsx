@@ -26,7 +26,7 @@ interface BaseInputProps {
   showEye?: boolean
   readonly?: boolean;
 }
-export const  BaseInput = ({
+export const  BaseInput2 = ({
   label,
   placeholder,
   containerClassname,
@@ -76,7 +76,7 @@ export const  BaseInput = ({
       <div
         style={{ opacity: readOnly ? ".5" : 1 }}
         className={cn(
-          "relative gap-1 rounded-xl",
+          "relative flex w-auto flex-row items-center justify-between gap-1 rounded-xl",
           readOnly ? "opacity-[.5]" : "opacity-[1]",
           inputContainerClassName,
         )}
@@ -85,11 +85,11 @@ export const  BaseInput = ({
         <input
           autoComplete="True"
           name={name}
-          {...register(`${name}`)}
+          onChange={onChange}
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           // type={"text"}
           className={cn(
-            "text-themeText placeholder:text-[#606060] placeholder-gray-400 placeholder:font-medium h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 text-left text-sm font-light outline-none focus:outline-none",
+            "text-themeText placeholder:text-[#606060] placeholder-gray-400 placeholder:font-medium h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 pl-[1rem]  pr-[2rem] text-left text-sm font-light outline-none focus:outline-none",
             inputClassName,
           )}
           // value={type === "password" && !showPassword ? pwdField : inputValue}
@@ -98,7 +98,7 @@ export const  BaseInput = ({
           readOnly={readOnly}
           {...props}
         />
-        {showEye && <div className="mt-2">
+        {showEye && <div className="">
           {type == "password" &&
             (showPassword ? (
               <RxEyeClosed

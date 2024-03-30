@@ -9,8 +9,8 @@ type BaseButtonProps = {
   hoverScale?: number;
   hoverOpacity?: number;
   tapScale?: number;
-  loading?: boolean
   background?: string
+  isSubmitting?: boolean
   icon?: any
   title?: string;
 };
@@ -19,9 +19,9 @@ export const BaseButton = ({
   containerCLassName,
   onClick,
   background,
-  loading,
   hoverScale = 1.1,
   hoverOpacity = 0.9,
+  isSubmitting,
   icon,
   tapScale = 0.8,
   title,
@@ -41,7 +41,7 @@ export const BaseButton = ({
       )}
       onClick={onClick}
     >
-      {loading ? 'Loading....' :
+      {isSubmitting ? 'Loading....' :
         <div className="flex items-center gap-2">
           {icon}
           {title || children}

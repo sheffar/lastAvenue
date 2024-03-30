@@ -2,68 +2,37 @@ import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import SocialsLogin from "@/components/ui/buttons/SocialsLogin";
 import { Checkbox } from "@/components/ui/data-inputs/FilterCheckbox";
 import { BaseInput } from "@/components/ui/data-inputs/text-input";
-import { APPNAME } from "@/utils/constants";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
-import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useState } from "react";
 import axios from "axios";
-import { LoginURL } from "@/services/urls/urls";
-
-export type TLoginValues = {
-  email: string
-  password: string
-}
+import { z } from 'zod'
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Link, useNavigate } from "react-router-dom";
 
 export const LoginView = () => {
-  document.title = `Login | ${APPNAME}`;
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [loading, setLoading] = useState(false)
 
-  const isValidEmail = (email: string) => {
-    const emailRegex = /^[A-Z0-9. _%+-]+@[A-Z0-9. -]+\.[A-Z]{2,}$/i;
-    return emailRegex.test(email);
-  }
+  const api = "https://last-avenue-api.onrender.com/api/v1/auth/login"
+  const schema = z.object({
+    email: z.string().email(),
+    password: z.string().min(8)
+  })
+  // const navigate = useNavigate()
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-    setEmailError('');
-  };
+  type TFORM = z.infer<typeof schema>
 
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-    setPasswordError('');
-  };
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<TFORM>({
+    resolver: zodResolver(schema)
+  })
 
-
-
-  const handleSubmit = async () => {
-    console.log(email, password);
-    if (!email || !password) {
-      setEmailError(email.trim() === "" ? 'Email is required' : "");
-      setPasswordError(password.trim() === "" ? 'Password is required' : "");
-      return
-    }
-
-    if (!isValidEmail(email)) {
-      setEmailError('Please input a valid email');
-      return
-    }
-    setLoading(true)
-
+  const SubmitForm = async (data: TFORM) => {
     try {
-      const response = await axios.post(LoginURL, { email, password });
+      const response = await axios.post(api, data);
       console.log(response);
-      setLoading(false)
     } catch (error) {
       console.log(error);
-      setLoading(false)
     }
-  };
-
+  }
 
   return (
     <AuthLayout parentClassname="max-md:items-start overflow-y-hidden">
@@ -72,31 +41,28 @@ export const LoginView = () => {
         <p className="text-md text-center font-medium text-[#060505] min-[400px]:w-[340px]">
           Sign in to your account if you are registered
         </p>
-        <form className="mt-6 w-full space-y-4">
+        <form className="mt-6 w-full space-y-4" onSubmit={handleSubmit(SubmitForm)}>
           <BaseInput
-            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
+            inputClassName=" border-[#E9E9E9] h-[55px] border-2 text-[#232323] font-bold text-[16px]"
             label="Email Address"
-            value={email}
-            onChange={handleEmailChange}
-            error={emailError}
             type="text"
-            labelClassName="text-medium text-[16px]"
+            name="email"
+            register={register}
+            error={errors.email?.message}
+            labelClassName="text-medium pl-1 text-[16px]"
             placeholder="Enter your email"
           />
           <BaseInput
-            inputClassName="border-none text-[#232323] px-3 font-bold text-[16px]"
-            inputContainerClassName="h-[50px] border-2 rounded-[10px] border-[#E9E9E9] pl-1 pr-0"
+            inputClassName=" border-[#E9E9E9] pl-2 h-[55px] border-2 text-[#232323] font-bold text-[16px]"
             label="Password"
-            value={password}
-            onChange={handlePasswordChange}
-            error={passwordError}
+            name="password"
+            register={register}
+            error={errors.password?.message}
             type="text"
-            labelClassName="text-medium text-[16px]"
+            labelClassName="text-medium pl-1 text-[16px]"
+            showEye={true}
             placeholder="Enter your Password"
           />
-
-
           <div className={"flex flex-row flex-wrap items-center justify-between gap-2"}>
             <Checkbox
               label="keep me signed in"
@@ -110,9 +76,8 @@ export const LoginView = () => {
             </Link>
           </div>
           <BaseButton
-            onClick={handleSubmit}
             hoverOpacity={0.9}
-            loading={loading}
+            isSubmitting={isSubmitting}
             hoverScale={1.05}
             containerCLassName="bg-[#232323] rounded-[8px] w-full py-[24px] font-medium text-[16px] text-[#F7FAFC]"
             title={"Sign In"}
