@@ -6,13 +6,11 @@ import { APPNAME } from "@/utils/constants";
 import { RouterConstantUtil } from "@/utils/constants/RouterConstantUtils";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useState } from "react";
 import { zodResolver } from '@hookform/resolvers/zod'
-import { SignupURL } from "@/services/urls/urls";
 import axios from "axios";
 import { z } from 'zod'
 
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 export const RegistrationView = () => {
 

@@ -1,6 +1,5 @@
 import Wallet from '../../../assets/icons/wallet.svg'
 import Master from '../../../assets/icons/master.svg'
-import { BaseInput } from '@/components/ui/data-inputs/text-input'
 import { BaseButton } from '@/components/ui/buttons/BaseButton'
 import { useState } from 'react'
 import { BaseInput2 } from '@/components/ui/data-inputs/BaseInput2'

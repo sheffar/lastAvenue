@@ -25,7 +25,7 @@ export default function Click() {
                         <div className="px-5 shadow-md py-3 relative bg-black rounded-lg cursor-pointer">
                             <p className="px-4 py-1 rounded-md text-white text-sm font-semibold h-fit">{data}</p>
                             <BsTrash className="absolute top-2 right-2 text-white cursor-pointer" onClick={() => {
-                                const newMap = list.filter((data, index) => key !== index)
+                                const newMap = list.filter((_, index) => key !== index)
                                 setList(newMap)
                             }}/>
                         </div>

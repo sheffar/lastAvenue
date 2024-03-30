@@ -3,7 +3,6 @@ import { InformationCircle, CheckMarkCircle } from "react-huge-icons/outline";
 import { cn } from "@/utils/helpers";
 import { RxEyeClosed } from "react-icons/rx"
 import { TfiEye } from "react-icons/tfi";
-import { FieldError } from "react-hook-form";
 
 
 interface BaseInputProps {
