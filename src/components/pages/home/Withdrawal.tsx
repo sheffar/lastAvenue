@@ -43,7 +43,7 @@ export default function Withdrawal() {
                     </div>
                 </div>
             </div>
-            <BaseButton tapScale={1.025} hoverScale={1.075} title='Withdraw Money' containerCLassName='bg-[#FFE458] text-black text-sm mt-5 font-semibold' />
+            <BaseButton tapScale={1.025} hoverScale={1.075} title='Withdraw Money' containerCLassName='bg-[#FFE458] w-full text-black text-sm mt-5 font-semibold' />
         </div>
     )
 }

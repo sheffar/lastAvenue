@@ -84,7 +84,7 @@ export const  BaseInput = ({
         <input
           autoComplete="True"
           name={name}
-          {...register(`${name}`)}
+          // {...register(`${name}`)}
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           // type={"text"}
           className={cn(

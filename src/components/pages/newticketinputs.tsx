@@ -1,5 +1,6 @@
 import { SelectInput } from '@/components/ui/data-inputs/select-input';
 import { SearchBar } from '@/components/ui/SearchBar';
+import { SelectInput2 } from '../ui/data-inputs/select-input2';
 
 export const NewTicketsInputs = () => {
     return (
@@ -9,7 +10,7 @@ export const NewTicketsInputs = () => {
             <p className="fomt-sans text-sm font-normal text-[#606060]">
               Choose Refund Reason
             </p>
-            <SelectInput
+            <SelectInput2
               defaultValue="Mismatched order"
               selectClassName="adjust_select_arrow_angle max-[900px]:w-full font-semibold text-sm pr-3 bg-[#C4C4C4] py-0 w-[185px] text-[#232323] h-[36px] max-w-full flex-row-reverse rounded-[4px] border-none  pr-3"
               optionClassname="text-[#232323] "
@@ -31,7 +32,7 @@ export const NewTicketsInputs = () => {
             <p className="fomt-sans text-sm font-normal text-[#606060]">
               Choose Refund Reason
             </p>
-            <SelectInput
+            <SelectInput2
               containerClassname="max-[900px]:w-full"
               defaultValue="Mismatched order"
               selectClassName="adjust_select_arrow_angle max-[900px]:w-full font-semibold text-[#232323] text-sm pr-3 bg-[#C4C4C4] py-0 w-[185px] h-[36px] max-w-full flex-row-reverse rounded-[4px] border-none  pr-3"
@@ -87,7 +88,7 @@ export const NewTicketsInputs = () => {
           </div>
           <div className="flex w-full flex-col items-center gap-1">
             <p className="fomt-sans text-sm font-normal text-[#606060]">Remark</p>
-            <SelectInput
+            <SelectInput2
               containerClassname="max-[900px]:w-full"
               defaultValue="Attended"
               selectClassName="adjust_select_arrow_angle max-[900px]:w-full font-semibold text-sm pr-3 bg-[#C4C4C4] py-0 w-[185px] text-[#232323] h-[36px] max-w-full flex-row-reverse rounded-[4px] border-none  pr-3"

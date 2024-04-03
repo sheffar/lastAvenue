@@ -2,6 +2,7 @@ import { DirectionLeft, DirectionRight } from "react-huge-icons/outline";
 import { SelectInput } from "../data-inputs/select-input";
 import { useState } from "react";
 import { cn } from "@/utils/helpers";
+import { SelectInput2 } from "../data-inputs/select-input2";
 
 //dummy mock pagination tabs
 export const PaginationTabs = () => {
@@ -21,7 +22,7 @@ export const PaginationTabs = () => {
     <div className="mt-7 flex flex-row flex-wrap items-center justify-between gap-3 px-5">
       <div className="flex flex-row items-center gap-4">
         <p className="text-md font-sans font-medium text-[#8B909A]">Showing</p>
-        <SelectInput
+        <SelectInput2
           defaultValue="14"
           options={Array.from({ length: 14 }, (_, index) => (index + 1).toString())}
           selectClassName="adjust_select_arrow_angle border-[1px] border-[#E9E7FD] text-sm pr-3 bg-[#FFFFFF] py-0 w-[80px] h-[40px] max-w-full flex-row-reverse rounded-[4px] bg-white pr-3"

@@ -3,6 +3,7 @@ import { Sidebar } from "@/components/ui/sidebar/suppliersidebar/sidebar";
 import { ScrollToTop, cn } from "@/utils/helpers";
 import { MobileNav } from "src/components/ui/navs/mobileNav";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface ISupplierLayout {
   title: string;
@@ -23,6 +24,7 @@ export const SupplierLayout = ({
           <div className="sticky top-0 z-50 bg-white">
             <DashboardTopNav />
           </div>
+
           <div className="h-screen overflow-y-auto overflow-x-hidden bg-[#E9E9E9] px-5">
             <motion.div
               initial={{ opacity: 0 }}

@@ -15,6 +15,7 @@ export default function Click() {
             <form className="" onSubmit={(e) => {
                 e.preventDefault()
                 setList([...list, input])
+                setInput('')
             }}>
                 {/* <input type="text" value={input} onChange={(e: any) => setInput(e.target.value)} className="h-14 rounded-md w-full px-4 border-2" /> */}
                 <BaseInput2 onChange={onChange} name="input" value={input} containerClassname="border-2 border-gray-600 rounded-md" inputClassName="border-none" />

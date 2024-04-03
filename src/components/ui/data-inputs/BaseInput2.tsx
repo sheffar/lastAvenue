@@ -71,7 +71,7 @@ export const  BaseInput2 = ({
           )}
         ></h1>
       )}
-      {title}
+
       <div
         style={{ opacity: readOnly ? ".5" : 1 }}
         className={cn(
@@ -88,7 +88,7 @@ export const  BaseInput2 = ({
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           // type={"text"}
           className={cn(
-            "text-themeText placeholder:text-[#606060] placeholder-gray-400 placeholder:font-medium h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 pl-[1rem]  pr-[2rem] text-left text-sm font-light outline-none focus:outline-none",
+            "text-themeText placeholder:text-[#606060] placeholder-gray-400 placeholder:font-light h-14 w-full cursor-pointer rounded-[10px] border bg-transparent py-3 pl-[1rem]  pr-[2rem] text-left text-sm font-light outline-none focus:outline-none",
             inputClassName,
           )}
           // value={type === "password" && !showPassword ? pwdField : inputValue}

@@ -1,8 +1,8 @@
 import { SupplierLayout } from "@/view/layout/SupplierLayout";
 import { SearchBar } from "@/components/ui/SearchBar";
-import { SelectInput } from "@/components/ui/data-inputs/select-input";
 import { stockHeaders, stockMockTableRows } from "@/utils/constants";
 import { BaseTable } from "@/components/ui/table/BaseTable";
+import { SelectInput2 } from "@/components/ui/data-inputs/select-input2";
 
 export const SupplierStockList = () => {
   return (
@@ -17,7 +17,7 @@ export const SupplierStockList = () => {
             placeholder="Search..."
           />
 
-          <SelectInput
+          <SelectInput2
             defaultValue="View by date range"
             selectClassName="adjust_select_arrow_angle text-sm pr-3 bg-[#FFFFFF] py-0 w-[185px] h-[40px] max-w-full flex-row-reverse rounded-[4px] border-none bg-white pr-3"
             optionClassname="text-[#8B909A] "
