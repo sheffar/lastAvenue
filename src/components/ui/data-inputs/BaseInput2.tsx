@@ -71,7 +71,8 @@ export const  BaseInput2 = ({
           )}
         ></h1>
       )}
-
+      
+      {title}
       <div
         style={{ opacity: readOnly ? ".5" : 1 }}
         className={cn(

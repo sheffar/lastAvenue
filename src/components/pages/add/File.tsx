@@ -10,21 +10,42 @@ type Props = {
     values: TValues
     setFiles: React.Dispatch<React.SetStateAction<(string | File)[]>>
     setValues: React.Dispatch<React.SetStateAction<TValues>>
+    setErrors: React.Dispatch<React.SetStateAction<{
+        productName: string;
+        category: string;
+        brand: string;
+        description: string;
+        gender: string;
+        price: string;
+        images: string;
+    }>>
+    errors: {
+        productName: string;
+        category: string;
+        brand: string;
+        description: string;
+        gender: string;
+        price: string;
+        images: string;
+    }
 }
 
-export default function File({ className, files, setFiles, values, setValues }: Props) {
+export default function File({ className, files, setFiles, values, setValues, errors, setErrors }: Props) {
     const inputRef = useRef<HTMLInputElement>(null)
     const [fileURL, setFileURL] = useState<string | undefined>();
-
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (file) {
             setFileURL(URL.createObjectURL(file))
             setFiles([...files, file])
             setValues({ ...values, images: files })
+            setErrors({...errors, images: ''})
         }
     };
 
+    useEffect(() => {
+
+    }, [files])
 
     return (
         <div className={cn(className)} >

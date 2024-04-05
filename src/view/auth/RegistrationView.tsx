@@ -173,4 +173,5 @@ export const RegistrationView = () => {
       </div>
     </AuthLayout>
   );
+
 };
