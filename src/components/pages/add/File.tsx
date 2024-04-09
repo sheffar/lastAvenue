@@ -4,30 +4,25 @@ import { IoCloseOutline } from "react-icons/io5";
 import { TValues } from './Main';
 
 
+type TErrors ={
+    productName: string;
+    category: string;
+    brand: string;
+    description: string;
+    gender: string;
+    price: string;
+    images: string;
+}
+
+
 type Props = {
     className?: string
     files?: (string | File)[]
     values: TValues
-    setFiles: React.Dispatch<React.SetStateAction<(string | File)[]>>
-    setValues: React.Dispatch<React.SetStateAction<TValues>>
-    setErrors: React.Dispatch<React.SetStateAction<{
-        productName: string;
-        category: string;
-        brand: string;
-        description: string;
-        gender: string;
-        price: string;
-        images: string;
-    }>>
-    errors: {
-        productName: string;
-        category: string;
-        brand: string;
-        description: string;
-        gender: string;
-        price: string;
-        images: string;
-    }
+    setFiles: () => void
+    setValues: () => void
+    setErrors: () => void
+    errors: TErrors
 }
 
 export default function File({ className, files, setFiles, values, setValues, errors, setErrors }: Props) {

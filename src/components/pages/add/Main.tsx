@@ -9,11 +9,7 @@ import { BaseInput2 } from "@/components/ui/data-inputs/BaseInput2";
 import { SelectInput2 } from "@/components/ui/data-inputs/select-input2";
 
 
-type TColors =
-  {
-    name: string,
-    hexcode: string
-  }
+
 
 export type TValues = {
   productName: string
@@ -27,8 +23,9 @@ export type TValues = {
 
 export default function Main() {
 
-  const [backDropOpened, setBackdropOpened] = useState(false)
+  const [backdropOpened, setBackdropOpened] = useState(false)
   const [colorDialogue, setColorDialogue] = useState(false)
+  const [sizeDialogue, setSizeDialogue] = useState(false)
 
 
   const [values, setValues] = useState<TValues>({
@@ -54,7 +51,11 @@ export default function Main() {
   const ColorRef = useRef<any>()
   const ColorBtnRef = useRef<any>()
 
-
+  const [selectedImages, setSelectedImages] = useState<string[]>([''])
+  const [selectedColors, setSelectedColors] = useState<string[]>([''])
+  const [selectedSizes, setSelectedSizes] = useState<string[]>([''])
+  const [colors, setColors] = useState(['red', 'blue', 'green', 'yellow'])
+  const [sizes, setSizes] = useState(['XS', 'SM', 'M', 'LG', 'XL'])
 
 
   const [files, setFiles] = useState<(string | File)[]>([])
@@ -67,46 +68,56 @@ export default function Main() {
 
 
   const Submit = () => {
-    if (!values.productName || !values.category || values.brand || !values.description || !values.gender || !values.images || !values.price || !values.productName || !values.images?.length > 0 ) {
+    if (!values.productName || !values.category || values.brand || !values.description || !values.gender || !values.images || !values.price || !values.productName || !values.images) {
       setErrors({
+        productName: values.price ? '' : 'Please a a Product Name',
         brand: values.brand ? '' : 'Please select a brand',
         category: values.category ? '' : 'Please select a category',
         gender: values.gender ? '' : 'Please select a gender',
         description: values.description ? '' : 'Please add a description',
-        images: values.images.length > 1 ? '' : 'Please select a file',
+        images: values.images ? '' : 'Please select a file',
         price: values.price ? '' : 'Please add a price',
-        productName: values.price ? '' : 'Please a a Product Name'
       })
+      return
     }
-    
+    const data = {
+      productName: values.productName,
+      brand: values.brand,
+      category: values.category,
+      gender: values.gender,
+      description: values.description,
+      images: selectedImages,
+      color: selectedColors,
+      sizes: selectedSizes,
+    }
+
+    const api = ''
+
+  }
+  const [inputSize, setInputSize] = useState('')
+
+
+  const OpenDropDownColor = () => {
+    setBackdropOpened(true)
+    setColorDialogue(true)
   }
 
-  const handleClick = (e: any) => {
-    if (ColorBtnRef.current?.contains(e.target)) {
-      setBackdropOpened(true)
-      setColorDialogue(true)
-    }
-    else if (ColorRef.current?.contains(e.target)) {
-      setBackdropOpened(true)
-      setColorDialogue(true)
-    }
-    else {
-      setBackdropOpened(false)
-      setColorDialogue(false)
-    }
+
+  const addSize = () => {
+    if (inputSize) {
+        setSelectedSizes([...selectedSizes, inputSize.toUpperCase()])
+      }
   }
 
-
-  useEffect(() => {
-    document.body.addEventListener('click', handleClick)
-    return () => document.body.removeEventListener('click', handleClick)
-  }, [colorDialogue, backDropOpened])
-
+  const deleteSize = () => {
+    setSelectedSizes([''])
+    setSizes(['XS', 'SM', 'M', 'LG', 'XL'])
+  }
 
 
   return (
     <SupplierLayout title="Add New Product" subtitle="When adding products, make sure to fill in completely all the required description.">
-      <div ref={ColorRef} className={`h-screen w-screen z-[100] bg-[rgba(0,0,0,.25)] fixed top-0 left-0 ${backDropOpened ? 'opacity-100 visible' : 'opacity-0 invisible'} duration-500`}></div>
+      <div ref={ColorRef} className={`h-screen w-screen z-[100] bg-[rgba(0,0,0,.25)] fixed top-0 left-0 ${backdropOpened ? 'opacity-100 visible' : 'opacity-0 invisible'} duration-500`}></div>
       <div className="min-h-screen text-black p-4 mt-4 rounded-md bg-white grid gap-7 grid-cols-1 lg:grid-cols-2">
         <div className="">
           <BaseInput2 onChange={onChange} name='productName' error={errors.productName} label="Product Name" containerClassname="" labelClassName="text-black text-base font-semibold" inputClassName="border-2 border-gray-600" />
@@ -116,6 +127,52 @@ export default function Main() {
           </div>
           <div className="mt-5">
             <SelectInput2 onChange={onChange} name="brand" error={errors.brand} options={['', 'Nike', 'Hermes', 'Gucci']} labelClassname="text-black font-semibold" selectClassName="border-2 border-gray-600" label="Brand" />
+          </div>
+          <div className="flex justify-between items-center gap-2 py-3">
+            <p className="font-semibold">Add Color</p>
+            <div className="flex flex-1 overflow-x-auto  justify-center items-center gap-3">
+              {colors.map((color, key: number) => (
+                <div onClick={() => {
+                  setSelectedColors([...selectedColors, color])
+                }} style={{ backgroundColor: `${color}` }} className={`h-10 cursor-pointer w-10 border-2 rounded-full ${selectedColors.includes(color) ? 'border-black' : 'border-white'}`}></div>
+              ))}
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 border-2 cursor-pointer rounded-full center">
+                <BsTrash className="text-lg" />
+              </div>
+              <div className="h-10 w-10 border-2 cursor-pointer rounded-full center" onClick={OpenDropDownColor}>
+                <BsPlus className="text-xl" />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-between items-center gap-2 py-3">
+            <p className="font-semibold">Add Size</p>
+            <div className="flex overflow-x-auto flex-1 items-center gap-3">
+              {sizes.map((size, key: number) => (
+                <div className="">
+                  <div onClick={() => {
+                    if (selectedSizes.includes(size)) {
+                      const newArray = selectedSizes.filter(el => el !== size)
+                      setSelectedSizes(newArray)
+                    } else {
+                      setSelectedSizes([...selectedSizes, size])
+                    }
+                  }} className={`h-9 w-11 text-sm duration-300 font-semibold cursor-pointer border-2 center rounded-md ${selectedSizes.includes(size) ? 'bg-black text-white' : 'bg-white text-black'}`}>
+                    {size}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 border-2 cursor-pointer rounded-full center" onClick={deleteSize}>
+                <BsTrash className="text-lg" />
+              </div>
+              <div className="h-10 w-10 border-2 cursor-pointer rounded-full center" >
+                <BsPlus className="text-xl" />
+              </div>
+            </div>
           </div>
 
           <div className="mt-5">
@@ -134,7 +191,7 @@ export default function Main() {
 
 
 
-        <div className={`w-80 rounded-md z-[150] shadow-md fixed border-2 border-black p-4 bg-white shadow-black top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 duration-500 ${colorDialogue ? 'opacity-100 visible ' : 'opacity-0 invisible'}`}>
+        <div className={`w-80 rounded-md shadow-md fixed border-2 border-black p-4 bg-white shadow-black top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 duration-500 z-[100000] ${colorDialogue ? 'opacity-100 visible ' : 'opacity-0 invisible'}`}>
           <p className="font-semibold text-lg text-center">Add Color</p>
           <div className="space-y-6">
             <div className="">
@@ -147,12 +204,27 @@ export default function Main() {
           </div>
         </div>
 
+        <div className={`w-80 rounded-md  z-[100000] shadow-md fixed border-2 border-black p-4 bg-white shadow-black top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 duration-500 ${sizeDialogue ? 'opacity-100 visible ' : 'opacity-0 invisible'}`}>
+          <p className="font-semibold text-lg text-center">Add Size</p>
+          <div className="space-y-6 mt-5">
+            <div className="">
+              <input type="text" value={inputSize} onChange={(e: any) => setInputSize(e.target.value)} className="w-full h-12 outline-none px-3 border-2 rounded-md" />
+              {/* {<p className="text-red-500 text-sm mt-1">Please fill in this field</p>} */}
+            </div>
+            <button onClick={addSize} className="py-3 text-white font-semibold rounded-md bg-emerald-500 w-full">Add Size</button>
+          </div>
+        </div>
 
 
 
 
 
 
+        <div className={`fixed h-screen duration-300 w-screen bg-black bg-opacity-10 top-0 left-0 z-[5000] ${backdropOpened ? 'opacity-100 visible' : 'opacity-0 invisible'}`} onClick={() => {
+          setBackdropOpened(false)
+          setColorDialogue(false)
+          setSizeDialogue(false)
+        }}></div>
 
 
 
